@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Health Center <?= date('Y')?></title>
+    <title>QR SYSTEM <?= date('Y')?></title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="assets/datatables/jquery.dataTables.min.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="assets/notif/notif.css">
 </head>
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -52,7 +52,7 @@
             <script src="assets/js/demo/chart-area-demo.js"></script>
             <script src="assets/js/demo/chart-pie-demo.js"></script>
             <script src="assets/datatables/jquery.dataTables.min.js"></script>
-
+            <script src="assets/notif/notif.js"></script>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
@@ -130,6 +130,30 @@
                 }
             }
         }
+    }
+
+    function success_add(){
+      new Notify('Great!','Data is successfully Added.','success');
+    }
+
+    function success_update(){
+      new Notify('Great!','Data is successfully Updated.','success');
+    }
+
+    function success_delete(){
+      new Notify('Great!','Data is successfully Deleted.','success');
+    }
+
+    function warning_info(){
+      new Notify('Warning!','Unable to execute action.','warning');
+    }
+
+    function error_query(){
+      new Notify('Oops!','Something went wrong. Please contact admin to fix error.','error');
+    }
+
+    function modified_alert(title,description,type){
+      new Notify(title,description,type);
     }
 </script>
 </html>

@@ -3,7 +3,6 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Patients</h1>
     </div>
-
     <!-- Content Row -->
     <div class="row">
         <div class="container-fluid">
@@ -47,7 +46,6 @@
             </div>
         </div>
     </div>
-
     <?php 
        include 'modals/add_patient_modal.php';
        include 'modals/update_patient_modal.php';
@@ -68,10 +66,10 @@
                 id:checkedValues
             },function(data){
                 if(data == 1){
-                    //notif_delete();
+                    success_delete();
                     get_PatientData();
                 }else{
-                    //notif_failed();
+                    warning_info();
                 }   
             });
         }
@@ -89,10 +87,10 @@
                 success:function(data){
                     if(data == 1){
                         $("#UpdatePatientModal").modal('hide');
-                        //notif_update();
+                        success_update();
                         get_PatientData();
                     }else{
-                        //notif_failed();
+                        warning_info();
                         $("#UpdatePatientModal").modal('hide');
                     }
                 }
@@ -110,10 +108,10 @@
                     success:function(data){
                         if(data == 1){
                             $("#UpdatePatientModal").modal('hide');
-                            //notif_update();
+                            success_update();
                             get_PatientData();
                         }else{
-                            //notif_failed();
+                            warning_info();
                             $("#UpdatePatientModal").modal('hide');
                         }
                     }
@@ -156,14 +154,14 @@
             success:function(data){
                 if(data == 1){
                     $("#addPatientModal").modal('hide');
-                    //notif_add();
+                    success_add();
                     get_PatientData();
 
                     $("#form_add_patient").each(function(){
                        this.reset();
                     });
                 }else{
-                    //notif_warning();
+                    warning_info();
                     $("#addPatientModal").modal('hide');
                 }
 
@@ -224,5 +222,3 @@ $(document).ready(function() {
 </script>
 
 </div>
-
-

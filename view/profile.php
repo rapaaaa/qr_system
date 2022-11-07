@@ -23,25 +23,29 @@ $row = $fetch->fetch_array();
                                     <h1 class="h4 text-gray-900 mb-4">User Information</h1>
                                 </div>
                                 <form role="form" method='POST' id="form_user_update">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="first_name" name="first_name" placeholder="First Name" value="<?=$row['first_name']?>">
+                                    <div class="input-group" style="margin-bottom: 5px;">
+                                        <div class="input-group-prepend"><span class="input-group-text"><strong>First Name:</strong></span></div>
+                                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?=$row['first_name']?>" autocomplete='off'>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="middle_name"  name="middle_name" placeholder="Middle Name" value="<?=$row['middle_name']?>">
+                                    <div class="input-group" style="margin-bottom: 5px;">
+                                        <div class="input-group-prepend"><span class="input-group-text"><strong>Middle Name:</strong></span></div>
+                                        <input type="text" class="form-control" id="middle_name" name="middle_name" value="<?=$row['middle_name']?>" autocomplete='off'>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="last_name" name="last_name" placeholder="Last Name" value="<?=$row['last_name']?>">
+                                    <div class="input-group" style="margin-bottom: 5px;">
+                                        <div class="input-group-prepend"><span class="input-group-text"><strong>Last Name:</strong></span></div>
+                                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?=$row['last_name']?>" autocomplete='off'>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username"  value="<?=$row['username']?>">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="password" name="password" placeholder="Password">
-                                        </div>
+                                    <div class="input-group" style="margin-bottom: 5px;">
+                                        <div class="input-group-prepend"><span class="input-group-text"><strong>Username:</strong></span></div>
+                                        <input type="text" class="form-control" id="username" name="username" value="<?=$row['username']?>" autocomplete='off'>
+                                    </div>
+
+                                    <div class="input-group" style="margin-bottom: 5px;">
+                                        <div class="input-group-prepend"><span class="input-group-text"><strong>Password:</strong></span></div>
+                                        <input type="text" class="form-control" id="password" name="password" autocomplete='off'>
                                     </div>
 
                                      <button type="submit" class="btn btn-primary btn-user btn-block" id="btn_update_save"><i class="fas fa-check-circle"></i> Update Profile</button>
@@ -71,9 +75,9 @@ $row = $fetch->fetch_array();
                 success:function(data){
                     if(data == 1){
                         alert("Success Update!");
-                        //notif_update();
+                        success_update();
                     }else{
-                        //notif_failed();
+                        warning_info();
                     }
                 }
 
@@ -91,9 +95,9 @@ $row = $fetch->fetch_array();
                         if(data == 1){
                             alert("Success Update!");
                             $("#password").val("");
-                            //notif_update();
+                            success_update();
                         }else{
-                            //notif_failed();
+                            warning_info();
                         }
                     }
 

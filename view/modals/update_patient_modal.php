@@ -14,41 +14,49 @@
 	            <div class="modal-body">
 	            	<input type="hidden" name="update_patient_id" id="update_patient_id">
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="First Name" name="update_first_name" id="update_first_name" autocomplete="off" required>
-	            	</div>
+	            	<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>First Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_first_name" id="update_first_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Middle Name" name="update_middle_name" id="update_middle_name" autocomplete="off">
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Middle Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_middle_name" id="update_middle_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Last Name" name="update_last_name" id="update_last_name" autocomplete="off" required>
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Last Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_last_name" id="update_last_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<select class="form-control update_gender" name='update_gender' id='update_gender'>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Gender:</strong></span></div>
+					  	<select class="form-control update_gender" name='update_gender' id='update_gender' required>
 	            			<option value=''>Please choose gender:</option>
 	            			<option value='M'>Male</option>
 	            			<option value='F'>Female</option>
 	            		</select>
-	            	</div>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Contact Number" name="update_contact_number" id="update_contact_number" autocomplete="off" required>
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Contact Number:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_contact_number" id="update_contact_number" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input placeholder="Birthday" class="textbox-n form-control" type="text" onclick="(this.type='date')" name="update_birthday" id="update_birthday">
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Birthday:</strong></span></div>
+					  	<input type="date" class="form-control" name="update_birthday" id="update_birthday" autocomplete="off" required>
+					</div>
+
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Username:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_username" id="update_username" autocomplete="off" required>
+					</div>
 	            
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Username" name="update_username" id="update_username" autocomplete="off" required>
-	            	</div>
-
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Password" name="update_password" id="update_password" autocomplete="off">
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Password:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_password" id="update_password" autocomplete="off">
+					</div>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_update_save"><i class="fas fa-check-circle"></i> Save</button>

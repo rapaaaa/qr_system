@@ -12,33 +12,39 @@
 	                </button>
 	            </div>
 	            <div class="modal-body">
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<select class="form-control" name='category_id' required>
+	            	<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
+					  	<select class="form-control" name='category_id' required>
 	            			<option value=''>Please choose user category:</option>
 	            			<option value='1'>Doctor</option>
 	            			<option value='2'>Health Worker</option>
 	            		</select>
-	            	</div>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="First Name" name="first_name" autocomplete="off" required>
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>First Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="first_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Middle Name" name="middle_name" autocomplete="off">
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Middle Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="middle_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Last Name" name="last_name" autocomplete="off" required>
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Last Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="last_name" autocomplete="off" required>
+					</div>
+					
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Username:</strong></span></div>
+					  	<input type="text" class="form-control" name="username" autocomplete="off" required>
+					</div>
 	            
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Username" name="username" autocomplete="off" required>
-	            	</div>
-
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Password" name="password" autocomplete="off">
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Password:</strong></span></div>
+					  	<input type="text" class="form-control" name="password" autocomplete="off">
+					</div>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_add"><i class="fas fa-check-circle"></i> Save</button>

@@ -16,7 +16,7 @@
 		$list['birthday'] 			= date("F j, Y",strtotime($row['birthday']));
 		$list['username'] 			= $row['username'];
 		$list['encoded_by'] 		= userFullName($row['encoded_by']);
-		$list['date_added'] 		= date("F j, Y (H:i:s)",strtotime($row['date_added']));
+		$list['date_added'] 		= date("F j, Y H:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);
 	}

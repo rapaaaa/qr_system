@@ -65,10 +65,10 @@
                 id:checkedValues
             },function(data){
                 if(data == 1){
-                    //notif_delete();
+                    success_delete();
                     get_UserData();
                 }else{
-                    //notif_failed();
+                    warning_info();
                 }   
             });
         }
@@ -86,10 +86,10 @@
                 success:function(data){
                     if(data == 1){
                         $("#UpdateUserModal").modal('hide');
-                        //notif_update();
+                        success_update();
                         get_UserData();
                     }else{
-                        //notif_failed();
+                        warning_info();
                         $("#UpdateUserModal").modal('hide');
                     }
                 }
@@ -107,10 +107,10 @@
                     success:function(data){
                         if(data == 1){
                             $("#UpdateUserModal").modal('hide');
-                            //notif_update();
+                            success_update();
                             get_UserData();
                         }else{
-                            //notif_failed();
+                            warning_info();
                             $("#UpdateUserModal").modal('hide');
                         }
                     }
@@ -150,14 +150,14 @@
             success:function(data){
                 if(data == 1){
                     $("#addUserModal").modal('hide');
-                    //notif_add();
+                    success_add();
                     get_UserData();
 
                     $("#form_add_user").each(function(){
                        this.reset();
                     });
                 }else{
-                    //notif_warning();
+                    warning_info();
                     $("#addUserModal").modal('hide');
                 }
 
@@ -209,5 +209,3 @@ $(document).ready(function() {
 </script>
 
 </div>
-
-

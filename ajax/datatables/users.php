@@ -13,7 +13,7 @@
 		$list['name'] 		= userFullName($row['user_id']);
 		$list['category'] 	= userCategory($row['category_id']);
 		$list['username'] 	= $row['username'];
-		$list['date_added'] = date("F j, Y (H:i:s)",strtotime($row['date_added']));
+		$list['date_added'] = date("F j, Y H:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);
 	}

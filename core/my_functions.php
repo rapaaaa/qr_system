@@ -7,6 +7,12 @@ function user_info($selected_data,$user_id){
 	return $row[0];
 }
 
+function supplyCategory($supply_category){
+	$result = $supply_category=="M"?"Medicine":(($supply_category=="V")?"Vaccine":"");
+
+	return $result;
+}
+
 function userCategory($category_id){
 	$result = $category_id==1?"Doctor":(($category_id==2)?"Health Worker":(($category_id==3)?"Patient":""));
 

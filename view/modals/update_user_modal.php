@@ -14,31 +14,35 @@
 	            <div class="modal-body">
 	            	<input type="hidden" name="update_user_id" id="update_user_id">
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<select class="form-control update_category" name='update_category' id='update_category'>
-	      
-	            		</select>
-	            	</div>
+	            	<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
+					  	<select class="form-control update_category" name='update_category' id='update_category' required></select>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="First Name" name="update_first_name" id='update_first_name' autocomplete="off" required>
-	            	</div>
+	            	<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>First Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_first_name" id="update_first_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Middle Name" name="update_middle_name" id='update_middle_name' autocomplete="off">
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Middle Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_middle_name" id="update_middle_name" autocomplete="off" required>
+					</div>
 
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Last Name" name="update_last_name"  id='update_last_name' autocomplete="off" required>
-	            	</div>
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Last Name:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_last_name" id="update_last_name" autocomplete="off" required>
+					</div>
 	            
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Username" name="update_username"  id='update_username' autocomplete="off" required>
-	            	</div>
-
-	            	<div class="col-sm-12" style="margin-bottom: 5px;">
-	            		<input type="text" class="form-control" placeholder="Password" name="update_password"  id='update_password' autocomplete="off">
-	            	</div>
+	            	<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Username:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_username" id="update_username" autocomplete="off" required>
+					</div>
+	            
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Password:</strong></span></div>
+					  	<input type="text" class="form-control" name="update_password" id="update_password" autocomplete="off">
+					</div>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_update_save"><i class="fas fa-check-circle"></i> Save</button>

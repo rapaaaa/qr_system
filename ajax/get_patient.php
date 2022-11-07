@@ -27,7 +27,7 @@ function get_patientGenderDD($gender){
 	$select1 = $gender=="M"?"selected":"";
 	$select2 = $gender=="F"?"selected":"";
 
-	$dropdown = "<option value='1' $select1> Male </option>
-	    		 <option value='2' $select2> Female </option>";
+	$dropdown = "<option value='M' $select1> Male </option>
+	    		 <option value='F' $select2> Female </option>";
 	return $dropdown;
 }

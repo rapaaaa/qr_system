@@ -4,7 +4,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-hospital"></i>
         </div>
-        <div class="sidebar-brand-text mx-2">Health Center</div>
+        <div class="sidebar-brand-text mx-2">QR SYSTEM</div>
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
@@ -25,7 +25,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="index.php?page=dashboard">
+        <a class="nav-link" href="index.php?page=supplies">
             <i class="fas fa-fw fa-circle"></i>
             <span>Medicine/Vaccine</span></a>
     </li>
@@ -37,7 +37,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="index.php?page=dashboard">
+        <a class="nav-link" href="index.php?page=posts">
             <i class="fas fa-fw fa-circle"></i>
             <span>Posts</span></a>
     </li>
