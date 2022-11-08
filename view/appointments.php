@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Medicine/Vaccine</h1>
+        <h1 class="h3 mb-0 text-gray-800">Appointments</h1>
     </div>
 
     <!-- Content Row -->
@@ -9,31 +9,32 @@
         <div class="container-fluid">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm" data-toggle='modal' data-target='#addSupplyModal'>
+                    <a href="#" class="btn btn-primary btn-icon-split btn-sm" onclick="addAppModal()">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
-                        <span class="text">Add supply</span>
+                        <span class="text">Add appointment</span>
                     </a>
 
                      <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>
-                        <span class="text">Delete selected supply</span>
+                        <span class="text">Delete selected appointment</span>
                     </a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id='supply_table' class="table table-bordered" width="100%" cellspacing="0">
+                        <table id='app_table' class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_supply')"></th>
+                                    <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_app')"></th>
                                     <th style="width: 5px;"></th>
-                                    <th>Name</th>
-                                    <th>Category</th>
+                                    <th>Queue Number</th>
+                                    <th>Patient</th>
+                                    <th>Time</th>
                                     <th>Description</th>
-                                    <th>Remarks</th>
+                                    <th>Status</th>
                                     <th>Date Added</th>
                                 </tr>
                             </thead>
@@ -47,8 +48,8 @@
     </div>
 
     <?php 
-        include 'modals/add_supply_modal.php';
-        include 'modals/update_supply_modal.php';
+        include 'modals/add_appointment_modal.php';
+        include 'modals/update_appointment_modal.php';
     ?>
 
 <script type="text/javascript">
@@ -61,13 +62,13 @@
         var confirmation = confirm("Are you sure you want to continue?");
 
         if(confirmation == true){
-            $.post("ajax/delete_supply.php",
+            $.post("ajax/delete_appointment.php",
             {
                 id:checkedValues
             },function(data){
                 if(data == 1){
                     success_delete();
-                    get_SupplyData();
+                    get_AppData();
                 }else{
                     warning_info();
                 }   
@@ -75,21 +76,21 @@
         }
     }
 
-    $("#form_supply_update").submit(function(e){
+    $("#form_appointment_update").submit(function(e){
         e.preventDefault();
         $("#btn_update_save").prop('disabled',true);
         $.ajax({
             type:"POST",
-            url:"ajax/update_supply.php",
-            data:$("#form_supply_update").serialize(),
+            url:"ajax/update_appointment.php",
+            data:$("#form_appointment_update").serialize(),
             success:function(data){
                 if(data == 1){
-                    $("#UpdateSupplyModal").modal('hide');
+                    $("#UpdateAppointmentModal").modal('hide');
                     success_update();
-                    get_SupplyData();
+                    get_AppData();
                 }else{
                     warning_info();
-                    $("#UpdateSupplyModal").modal('hide');
+                    $("#UpdateAppointmentModal").modal('hide');
                 }
             }
 
@@ -97,40 +98,40 @@
         $("#btn_update_save").prop('disabled',false);
     });
 
-    function showUpdateModal(supply_id){
-        $("#UpdateSupplyModal").modal('show');
-        $.post("ajax/get_supply.php",
+    function showUpdateModal(app_id){
+        $("#UpdateAppointmentModal").modal('show');
+        $.post("ajax/get_appointment.php",
             {
-                supply_id:supply_id
+                app_id:app_id
             },function(data){
-               var get_data = JSON.parse(data);
-                $("#update_supply_id").val(get_data[0].supply_id);
-                $("#update_name").val(get_data[0].name);
-                $("#update_description").val(get_data[0].description);
-                $("#update_remarks").val(get_data[0].remarks);
-                $(".update_supply_category").html(get_data[0].supply_category);
+                var get_data = JSON.parse(data);
+                $("#update_app_id").val(get_data[0].app_id);
+                document.getElementById("update_patient_id").value = get_data[0].patient_id;
+                $("#update_description").val(get_data[0].description);  
+                $("#update_queue_number").val(get_data[0].queue_number); 
+                $("#update_app_time").val(get_data[0].app_time); 
         });
     }
 
-    $("#form_add_supply").submit(function(e){
+    $("#form_add_appointment").submit(function(e){
         e.preventDefault();
         $("#btn_add").prop('disabled', true);
         $.ajax({
             type:"POST",
-            url:"ajax/add_supply.php",
-            data:$("#form_add_supply").serialize(),
+            url:"ajax/add_appointment.php",
+            data:$("#form_add_appointment").serialize(),
             success:function(data){
                 if(data == 1){
-                    $("#addSupplyModal").modal('hide');
+                    $("#addAppModal").modal('hide');
                     success_add();
-                    get_SupplyData();
+                    get_AppData();
 
-                    $("#form_add_supply").each(function(){
+                    $("#form_add_appointment").each(function(){
                        this.reset();
                     });
                 }else{
                     warning_info();
-                    $("#addSupplyModal").modal('hide');
+                    $("#addAppModal").modal('hide');
                 }
 
             }
@@ -138,38 +139,53 @@
         $("#btn_add").prop('disabled', false);
     });
 
-    function get_SupplyData() {
-        $("#supply_table").DataTable().destroy();
-        $("#supply_table").DataTable({
+    function addAppModal(){
+        $("#addAppModal").modal('show');
+        $.post("ajax/appointment_queue_number.php"
+        ,function(data){
+            $("#queue_number").val(data);
+        });
+    }
+
+    function get_AppData() {
+        $("#app_table").DataTable().destroy();
+        $("#app_table").DataTable({
             "responsive": true,
             "processing": true,
             "ajax":{
                 "type":"POST",
-                "url":"ajax/datatables/supplies.php",
+                "url":"ajax/datatables/appointments.php",
                 "dataSrc":"data", 
             },
             "columns":[
             {
                 "mRender": function(data,type,row){
-                    return "<input type='checkbox' class='delete_check_box' name='check_supply' value='"+row.supply_id+"'>";                
+                    if(row.status_value==0){
+                        return "<input type='checkbox' class='delete_check_box' name='check_app' value='"+row.app_id+"'>";
+                    }  else{
+                        return "";
+                    }            
                 }
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.supply_id+")'><span class='fa fa-edit'></span></button>";
+                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")' "+row.status_disabled+"><span class='fa fa-edit'></span></button>";
                 }
             },
-            {
-                "data":"name"
+             {
+                "data":"queue_number"
             },
             {
-                "data":"category"
+                "data":"patient"
+            },
+            {
+                "data":"time"
             },
             {
                 "data":"description"
             },
             {
-                "data":"remarks"
+                "data":"status"
             },
             {
                 "data":"date_added"
@@ -179,7 +195,7 @@
     }
 
 $(document).ready(function() {
-    get_SupplyData();
+    get_AppData();
 });
 </script>
 

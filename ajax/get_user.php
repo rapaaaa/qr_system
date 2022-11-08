@@ -11,10 +11,17 @@
 		$list['first_name'] = $row['first_name'];
 		$list['middle_name'] = $row['middle_name'];
 		$list['last_name'] = $row['last_name'];
-		$list['category'] = get_userTypeDD($row['category_id']);
+		$list['contact_number'] = $row['contact_number'];
+		$list['address'] = $row['address'];
 		$list['username'] = $row['username'];
-		$list['password'] = "";
 		$list['date_added'] = $row['date_added'];
+		
+
+		//modified
+		$list['password'] = "";
+		$list['category'] = get_userTypeDD($row['category_id']);
+		$list['category_display'] = userCategory($row['category_id']);
+
 
 		array_push($response, $list);
 	}

@@ -47,6 +47,11 @@
 					</div>
 
 					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Address:</strong></span></div>
+					  	<textarea class="form-control" name="address" autocomplete="off" required></textarea>
+					</div>
+
+					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Username:</strong></span></div>
 					  	<input type="text" class="form-control" name="username" autocomplete="off" required>
 					</div>

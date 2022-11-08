@@ -3,17 +3,17 @@
 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
     <i class="fa fa-bars"></i>
 </button>
-
+<h5>QR SYSTEM FOR VACCINATION AND MEDICATION OF BARANGAY ZONE 6</h5>
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+       <!--  <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
-            <!-- Counter - Alerts -->
+
             <span class="badge badge-danger badge-counter">2+</span>
-        </a>
+        </a> -->
         <!-- Dropdown - Alerts -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="alertsDropdown">
@@ -54,7 +54,7 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hi! <?=user_info('first_name',$user_id)?></span>
             <img class="img-profile rounded-circle"
-                src="assets/img/undraw_profile.svg">
+                src="assets/img/default_profile_pic.jpeg">
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

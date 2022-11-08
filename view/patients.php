@@ -33,6 +33,7 @@
                                     <th>Gender</th>
                                     <th>Contact Number</th>
                                     <th>Birthday</th>
+                                    <th>Address</th>
                                     <th>Username</th>
                                     <th>Encoded By</th>
                                     <th>Date Added</th>
@@ -139,6 +140,7 @@
                 $(".update_gender").html(get_data[0].gender);
                 $("#update_contact_number").val(get_data[0].contact_number);
                 $("#update_birthday").val(get_data[0].birthday);
+                $("#update_address").val(get_data[0].address);
                 $("#update_username").val(get_data[0].username);
                 $("#update_password").val(get_data[0].password);
         });
@@ -202,6 +204,9 @@
             },
             {
                 "data":"birthday"
+            },
+            {
+                "data":"address"
             },
             {
                 "data":"username"

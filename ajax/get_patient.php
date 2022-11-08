@@ -14,6 +14,7 @@
 		$list['gender'] = get_patientGenderDD($row['gender']);
 		$list['contact_number'] = $row['contact_number'];
 		$list['birthday'] = $row['birthday'];
+		$list['address'] = $row['address'];
 		$list['username'] = $row['username'];
 		$list['password'] = "";
 		$list['date_added'] = $row['date_added'];

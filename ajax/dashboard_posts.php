@@ -10,7 +10,7 @@ if(mysqli_num_rows($fetch_dp)>0){
         <!-- Card Header - Accordion -->
         <a href="#collapseCardExample<?= $dp_row['post_id']?>" class="d-block card-header py-3" data-toggle="collapse"
             role="button" aria-expanded="true" aria-controls="collapseCardExample<?= $dp_row['post_id']?>">
-            <h5 class="m-0 font-weight-bold text-primary">Title: <?= $dp_row['title']." - ".$dp_date?> </h5>
+            <h5 class="m-0 font-weight-bold text-primary">Title: <?= $dp_row['title']?> </h5>
             <div class="font-weight-bold" style="font-size: 10px;color:#8f8b8b;">Author: <?= userFullName($dp_row['user_id']) ?></div>
             <div class="font-weight-bold" style="font-size: 10px;color:#8f8b8b;">Date: <?=date("F j, Y H:i A",strtotime($dp_row['date_added']));?></div>
         	
@@ -24,5 +24,6 @@ if(mysqli_num_rows($fetch_dp)>0){
     </div>
 <?php }?>
 <?php }else{ ?>
-	<center><h3><strong>No post found.</strong></h3></center>
+    <br><br><br><br><br>
+	<center><h3><strong>No post found on this day.</strong></h3></center>
 <?php }?>

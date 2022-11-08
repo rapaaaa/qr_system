@@ -13,7 +13,7 @@
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
-                        <span class="text">Add Post</span>
+                        <span class="text">Add post</span>
                     </a>
 
                      <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">

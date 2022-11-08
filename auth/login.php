@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Health Center <?= date('Y')?></title>
+    <title>QR SYSTEM <?= date('Y')?></title>
 
     <!-- Custom fonts for this template-->
     <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,21 +35,21 @@
                                 <div class="p-5">
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4"><i class="fas fa-hospital"></i> Health Center</h1>
+                                        <h1 class="h4 text-gray-900 mb-4"> QR SYSTEM FOR VACCINATION AND MEDICATION OF BARANGAY ZONE 6</h1>
                                     </div>
                                     <h5 style="color: #d12727;display: none;" id="error">Incorrect Username & Password</h5>
                                     <form role="form" method="POST" id="form_submit">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                name='username' placeholder="Username">
+                                        
+                                        <div class="input-group" style="margin-bottom: 10px;">
+                                          <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name='username'>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                name='password' placeholder="Password">
-                                        </div>
-                             
 
-                                         <button type="submit" class="btn btn-primary btn-user btn-block" id="btn_submit">Login in</button>
+                                        <div class="input-group" style="margin-bottom: 10px;">
+                                          <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                                          <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name='password'>
+                                        </div>
+                                         <button type="submit" class="btn btn-primary btn-user btn-block" id="btn_submit"><i class="fas fa-sign-in-alt"></i> Login</button>
                                         <hr>
                                     </form>
                                     <!-- <hr>

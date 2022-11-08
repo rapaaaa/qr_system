@@ -13,6 +13,10 @@
 		require $view.'supplies.php';
 	}else if($page == 'posts'){
 		require $view.'posts.php';
+	}else if($page == 'appointments'){
+		require $view.'appointments.php';
+	}else if($page == 'check_ups'){
+		require $view.'check_ups.php';
 	}else{
 		require $view.'404.php';
 		

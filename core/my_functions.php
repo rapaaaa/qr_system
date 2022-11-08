@@ -39,4 +39,29 @@ function patientGender($gender){
 	return $gender=="M"?"<span style='color:skyblue'>Male</span>":"<span style='color:pink'>Female</span>";
 }
 
+function usernameChecker($username,$update_user_id){
+	global $mysqli;
+	if($update_user_id>0){
+		//FOR UPDATE
+		$fetch = $mysqli->query("SELECT * FROM users WHERE username='$username' AND user_id !='$update_user_id'") or die(mysqli_error());
+	}else{
+		//FOR ADD
+		$fetch = $mysqli->query("SELECT * FROM users WHERE username='$username'") or die(mysqli_error());
+	}
+	$result = mysqli_num_rows($fetch);
+
+	return $result;
+}
+
+function getStatusDisplay($status){
+	$result = $status==0?"<span style='color:orange'>Saved</span>":(($status==1)?"<span style='color:green'>Finished</span>":"");
+
+	return $result;
+}
+
+function getStatusDisplayDisable($status){
+	$result = $status==0?"":(($status==1)?"disabled":"");
+
+	return $result;
+}
 ?>

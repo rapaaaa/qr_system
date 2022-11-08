@@ -88,6 +88,8 @@
                         $("#UpdateUserModal").modal('hide');
                         success_update();
                         get_UserData();
+                    }else if(data == 2){
+                        modified_alert("Oops!","Username already used. Please use different username.","warning");
                     }else{
                         warning_info();
                         $("#UpdateUserModal").modal('hide');
@@ -109,6 +111,8 @@
                             $("#UpdateUserModal").modal('hide');
                             success_update();
                             get_UserData();
+                        }else if(data == 2){
+                            modified_alert("Oops!","Username already used. Please use different username.","warning");
                         }else{
                             warning_info();
                             $("#UpdateUserModal").modal('hide');
@@ -118,9 +122,7 @@
                 });
                 $("#btn_update_save").prop('disabled',false);
             }
-
         }
-
     });
 
     function showUpdateModal(user_id){
@@ -156,6 +158,8 @@
                     $("#form_add_user").each(function(){
                        this.reset();
                     });
+                }else if(data == 2){
+                    modified_alert("Oops!","Username already used. Please use different username.","warning");
                 }else{
                     warning_info();
                     $("#addUserModal").modal('hide');

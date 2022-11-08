@@ -14,6 +14,7 @@
 		$list['gender'] 			= patientGender($row['gender']);
 		$list['contact_number'] 	= $row['contact_number'];
 		$list['birthday'] 			= date("F j, Y",strtotime($row['birthday']));
+		$list['address'] 			= $row['address'];
 		$list['username'] 			= $row['username'];
 		$list['encoded_by'] 		= userFullName($row['encoded_by']);
 		$list['date_added'] 		= date("F j, Y H:i A",strtotime($row['date_added']));

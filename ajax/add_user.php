@@ -10,10 +10,14 @@
 		$category_id = $_POST['category_id'];
 		$date_added = date("Y-m-d H:i:s");
 
-
-		$sql = $mysqli->query("INSERT INTO users SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', username = '$username', password = md5('$password'), category_id = '$category_id', date_added = '$date_added'") OR die(mysql_error());
+		if(usernameChecker($username,0)==0){
+			$sql = $mysqli->query("INSERT INTO users SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', username = '$username', password = md5('$password'), category_id = '$category_id', date_added = '$date_added'") OR die(mysql_error());
 		
-		echo 1;
+			echo 1;
+		}else{
+			echo 2; //USERNAME ALREADY USED
+		}
+		
 	}
 	
 ?>
