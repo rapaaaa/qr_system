@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm" onclick="addCheckupModal()">
+                    <a href="index.php?page=add_checkup" class="btn btn-primary btn-icon-split btn-sm" >
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
@@ -32,6 +32,7 @@
                                     <th style="width: 5px;"></th>
                                     <th>Patient</th>
                                     <th>Remarks</th>
+                                    <th>Prescription</th>
                                     <th>Status</th>
                                     <th>Date Added</th>
                                 </tr>
@@ -46,20 +47,40 @@
     </div>
 
     <?php 
-        include 'modals/add_checkup_modal.php';
+       include 'modals/view_checkup_modal.php';
     ?>
 
 <script type="text/javascript">
-    function addCheckupModal(){
-        $("#addCheckupModal").modal('show');
-      	get_appointments();
+    function showDetailsModal(cu_id){
+        $("#showCheckupDetails").modal("show");
+        $.post("ajax/view_checkup.php",{
+            cu_id:cu_id
+        },function(data){
+            $("#checkup_modal_div").html(data);
+        });
     }
 
-    function get_appointments(){
-    	$.post("ajax/get_checkup_appointments.php",
-    	function(data){
-    		$("#appointments").html(data);
-    	});
+    function deleteEntry(){
+        var checkedValues = $('.delete_check_box:checkbox:checked').map(function() {
+            return this.value;
+        }).get();
+        id = [];
+
+        var confirmation = confirm("Are you sure you want to continue?");
+
+        if(confirmation == true){
+            $.post("ajax/delete_checkups.php",
+            {
+                id:checkedValues
+            },function(data){
+                if(data == 1){
+                    success_delete();
+                    get_CheckupData();
+                }else{
+                    warning_info();
+                }   
+            });
+        }
     }
 
     function get_CheckupData() {
@@ -80,7 +101,7 @@
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.cu_id+")'><span class='fa fa-edit'></span></button>";
+                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Record Details' onclick='showDetailsModal("+row.cu_id+")'><span class='fa fa-list'></span></button>";
                 }
             },
             {
@@ -88,6 +109,9 @@
             },
             {
                 "data":"remarks"
+            },
+            {
+                "data":"prescription"
             },
             {
                 "data":"status"

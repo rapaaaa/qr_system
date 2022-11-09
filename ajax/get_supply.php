@@ -9,6 +9,7 @@
 		$list = array();
 		$list['supply_id'] = $row['supply_id'];
 		$list['name'] = $row['name'];
+		$list['price'] = $row['price'];
 		$list['description'] = $row['description'];
 		$list['remarks'] = $row['remarks'];
 		$list['supply_category'] = get_supplyCategoryDD($row['supply_category']);

@@ -7,6 +7,14 @@ function user_info($selected_data,$user_id){
 	return $row[0];
 }
 
+function supply_info($selected_data,$supply_id){
+	global $mysqli;
+	$fetch = $mysqli->query("SELECT $selected_data FROM supplies WHERE supply_id='$supply_id'") or die(mysqli_error());
+	$row = $fetch->fetch_array();
+
+	return $row[0];
+}
+
 function supplyCategory($supply_category){
 	$result = $supply_category=="M"?"Medicine":(($supply_category=="V")?"Vaccine":"");
 

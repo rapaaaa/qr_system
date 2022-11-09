@@ -157,6 +157,7 @@
                 "url":"ajax/datatables/appointments.php",
                 "dataSrc":"data", 
             },
+            order: [[7, 'desc']],
             "columns":[
             {
                 "mRender": function(data,type,row){

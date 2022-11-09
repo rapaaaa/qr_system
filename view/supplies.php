@@ -32,6 +32,7 @@
                                     <th style="width: 5px;"></th>
                                     <th>Name</th>
                                     <th>Category</th>
+                                    <th>Price</th>
                                     <th>Description</th>
                                     <th>Remarks</th>
                                     <th>Date Added</th>
@@ -106,6 +107,7 @@
                var get_data = JSON.parse(data);
                 $("#update_supply_id").val(get_data[0].supply_id);
                 $("#update_name").val(get_data[0].name);
+                $("#update_price").val(get_data[0].price);
                 $("#update_description").val(get_data[0].description);
                 $("#update_remarks").val(get_data[0].remarks);
                 $(".update_supply_category").html(get_data[0].supply_category);
@@ -164,6 +166,9 @@
             },
             {
                 "data":"category"
+            },
+            {
+                "data":"price"
             },
             {
                 "data":"description"

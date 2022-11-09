@@ -29,6 +29,11 @@
 					</div>
 
 					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Price:</strong></span></div>
+					  	<input type="number" class="form-control" name="update_price" id="update_price" step=".01" autocomplete="off" required>
+					</div>
+
+					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Description:</strong></span></div>
 					  	<textarea class="form-control" name="update_description" id="update_description" autocomplete="off" required></textarea>
 					</div>

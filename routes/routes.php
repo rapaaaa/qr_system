@@ -17,6 +17,8 @@
 		require $view.'appointments.php';
 	}else if($page == 'check_ups'){
 		require $view.'check_ups.php';
+	}else if($page == 'add_checkup'){
+		require $view.'add_checkup.php';
 	}else{
 		require $view.'404.php';
 		

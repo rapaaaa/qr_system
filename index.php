@@ -101,6 +101,10 @@
         }
     }
 
+    function success_finish(){
+      new Notify('Great!','Data is successfully Finished.','success');
+    }
+
     function success_add(){
       new Notify('Great!','Data is successfully Added.','success');
     }

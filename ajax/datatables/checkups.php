@@ -7,11 +7,16 @@
 	while ($row = $fetch->fetch_array()) {
 		$list = array();
 
+		$fetch_app = $mysqli->query("SELECT * FROM appointments WHERE app_id='$row[app_id]'") or die(mysqli_error());
+		$app_row = $fetch_app->fetch_array();
+
+		
  		$list['count'] 				= $count++;
 		$list['cu_id'] 				= $row['cu_id'];
-		$list['patient'] 			= $row['app_id'];
+		$list['patient'] 			= patientFullName($app_row['patient_id']);
 		$list['user_id'] 			= $row['user_id'];
 		$list['remarks'] 			= $row['remarks'];
+		$list['prescription'] 		= $row['prescription'];
 		$list['status'] 			= getStatusDisplay($row['status']);
 		$list['date_added'] 		= date("F j, Y h:i A",strtotime($row['date_added']));
 
