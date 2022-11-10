@@ -5,17 +5,16 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row">
-        <div class="col-lg-12" style="margin-bottom: 5px;">
+    <div class="col-lg-12" style="margin-bottom: 5px;">
+        <div class="row">
             <div class="col-md-4"  style="margin-bottom: 5px;">
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><strong>QR CODE:</strong></span></div>
                     <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()">
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="input-group">
+            <div class="col-md-8">
+                <div class="input-group" style="width: 50%">
                     <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
                     <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
                         <option value=''>Please choose queue #:</option>
@@ -29,7 +28,6 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-8"></div>
         </div>
     </div>
     <div class="row">
@@ -71,6 +69,7 @@
             cu_app_id:cu_app_id
         },function(data){
             get_appointments();
+            location.reload();
             success_finish();
         });
     }
