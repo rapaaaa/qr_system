@@ -1,7 +1,7 @@
 <?php
 	include '../../core/config.php';
 
-	$fetch = $mysqli->query("SELECT * FROM appointments") or die(mysqli_error());
+	$fetch = $mysqli->query("SELECT * FROM appointments ORDER BY app_id DESC") or die(mysqli_error());
 	$response['data'] = array();
 	$count = 1;
 	while ($row = $fetch->fetch_array()) {

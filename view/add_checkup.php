@@ -7,6 +7,13 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-12" style="margin-bottom: 5px;">
+            <div class="col-md-4"  style="margin-bottom: 5px;">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><strong>QR CODE:</strong></span></div>
+                    <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()">
+                </div>
+            </div>
+
             <div class="col-md-4">
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
@@ -30,6 +37,20 @@
     </div>
 
 <script type="text/javascript">
+    function scan_qr_code(){
+        var qr_number = $("#qr_number").val(); //app_id for now
+        $.post("ajax/scan_qr_code.php",{
+            qr_number:qr_number
+        },function(data){
+            if(data>0){
+                document.getElementById("app_id").value = data;
+                get_appointments();
+            }else{
+                modified_alert("Oops!","Invalid QR Code.","warning");
+            }
+        });
+    }
+
     function save_used_supply(){
         var cu_id = $("#cu_id").val();
         var supply_id = $("#supply_id").val();

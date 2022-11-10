@@ -157,20 +157,15 @@
                 "url":"ajax/datatables/appointments.php",
                 "dataSrc":"data", 
             },
-            order: [[7, 'desc']],
             "columns":[
             {
                 "mRender": function(data,type,row){
-                    if(row.status_value==0){
-                        return "<input type='checkbox' class='delete_check_box' name='check_app' value='"+row.app_id+"'>";
-                    }  else{
-                        return "";
-                    }            
+                    return "<input type='checkbox' class='delete_check_box' name='check_app' value='"+row.app_id+"'>"; 
                 }
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")' "+row.status_disabled+"><span class='fa fa-edit'></span></button>";
+                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
                 }
             },
              {
