@@ -15,6 +15,14 @@ function supply_info($selected_data,$supply_id){
 	return $row[0];
 }
 
+function service_info($selected_data,$service_id){
+	global $mysqli;
+	$fetch = $mysqli->query("SELECT $selected_data FROM services WHERE service_id='$service_id'") or die(mysqli_error());
+	$row = $fetch->fetch_array();
+
+	return $row[0];
+}
+
 function supplyCategory($supply_category){
 	$result = $supply_category=="M"?"Medicine":(($supply_category=="V")?"Vaccine":"");
 

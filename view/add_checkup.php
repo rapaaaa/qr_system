@@ -68,8 +68,8 @@
         $.post("ajax/finish_checkup.php",{
             cu_app_id:cu_app_id
         },function(data){
+            document.getElementById("app_id").value = "";
             get_appointments();
-            location.reload();
             success_finish();
         });
     }
@@ -77,10 +77,12 @@
     function save_checkup(){
         var prescription = $("#cu_prescription").val();
         var remarks = $("#cu_remarks").val();
+        var service_id = $("#cu_service_id").val();
         var cu_app_id = $("#cu_app_id").val();
         $.post("ajax/save_checkup.php",{
             prescription:prescription,
             remarks:remarks,
+            service_id:service_id,
             cu_app_id:cu_app_id
         },function(data){
             get_appointments();

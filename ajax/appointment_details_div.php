@@ -35,6 +35,7 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>Name:</strong> <?= $app_id==""?"":patientFullName($patient_row['patient_id'])?></li>
               <li class="list-group-item"><strong>Time:</strong> <?= $app_id==""?"":date('h:i A',strtotime($app_row['app_time']));?></li>
+              <li class="list-group-item"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
               <li class="list-group-item"><strong>Description:</strong> <?= $app_row['description'];?></li>
               <li class="list-group-item"><strong>Encoded by:</strong> <?= $app_id==""?"":userFullName($app_row['user_id']);?></li>
               <li class="list-group-item"><strong>Status:</strong> <?= $app_id==""?"":getStatusDisplay($app_row['status']);?></li>
@@ -47,24 +48,40 @@
       <div class="col-sm-12" style="border: solid 1px #ccc;border-radius: 5px;padding: 10px;">
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-c-tab" data-toggle="tab" href="#nav-c" role="tab" aria-controls="nav-c" aria-selected="true">Checkup</a>
-            <a class="nav-item nav-link" id="nav-mvu-tab" data-toggle="tab" href="#nav-mvu" role="tab" aria-controls="nav-mvu" aria-selected="false">Medicines/Vaccines Used</a>
-            <a class="nav-item nav-link" id="nav-mh-tab" data-toggle="tab" href="#nav-mh" role="tab" aria-controls="nav-mh" aria-selected="false">Medical History</a>
-            <a class="nav-item nav-link" id="nav-pp-tab" data-toggle="tab" href="#nav-pp" role="tab" aria-controls="nav-pp" aria-selected="false">Patient Profile</a>
+            <a class="nav-item nav-link active" id="nav-c-tab" data-toggle="tab" href="#nav-c" role="tab" aria-controls="nav-c" aria-selected="true"><strong>Checkup</strong></a>
+            <a class="nav-item nav-link" id="nav-mvu-tab" data-toggle="tab" href="#nav-mvu" role="tab" aria-controls="nav-mvu" aria-selected="false"><strong>Medicines/Vaccines Used</strong></a>
+            <a class="nav-item nav-link" id="nav-mh-tab" data-toggle="tab" href="#nav-mh" role="tab" aria-controls="nav-mh" aria-selected="false"><strong>Medical History</strong></a>
+            <a class="nav-item nav-link" id="nav-pp-tab" data-toggle="tab" href="#nav-pp" role="tab" aria-controls="nav-pp" aria-selected="false"><strong>Patient Profile</strong></a>
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
           <!------------------------------ CHECKUP-------------------------------------->
           <div class="tab-pane fade show active" id="nav-c" role="tabpanel" aria-labelledby="nav-c-tab"><br>
             <div class="row" style="margin-bottom: 20px;">
-              <div class="col-sm-6">
+              <div class="col-sm-12" style="margin-bottom: 5px;">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><strong>Service:</strong></span></div>
+                    <select class="form-control" id='cu_service_id' required>
+                          <option value=''>Please choose service:</option>
+                          <?php
+                            $fetch_service = $mysqli->query("SELECT * FROM services ORDER BY service ASC") or die(mysqli_error());
+                      while ($service_row = $fetch_service->fetch_array()) {
+                        $selected_service = ($checkup_row['service_id']==$service_row['service_id'])?"selected":"";
+                        echo "<option value='$service_row[service_id]' $selected_service>".$service_row['service']."</option>";
+                      }
+                          ?>
+                        </select>
+                </div>
+              </div>
+
+              <div class="col-sm-12" style="margin-bottom: 5px;">
                 <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text"><strong>Prescription:</strong></span></div>
                   <textarea class="form-control" id="cu_prescription" autocomplete="off"><?=$checkup_row['prescription']?></textarea>
                 </div>
               </div>
 
-              <div class="col-sm-6">
+              <div class="col-sm-12" style="margin-bottom: 5px;">
                 <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text"><strong>Remarks:</strong></span></div>
                   <textarea class="form-control" id="cu_remarks" autocomplete="off"><?=$checkup_row['remarks']?></textarea>

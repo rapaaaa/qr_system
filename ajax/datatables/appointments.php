@@ -12,6 +12,7 @@
 		$list['user_id'] 			= $row['user_id'];
 		$list['queue_number'] 		= $row['queue_number'];
 		$list['patient'] 			= patientFullName($row['patient_id']);
+		$list['service'] 			= service_info("service",$row['service_id']);
 		$list['description'] 		= $row['description'];
 		$list['status_value'] 		= $row['status'];
 		$list['status'] 			= getStatusDisplay($row['status']);

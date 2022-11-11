@@ -3,7 +3,7 @@ include '../core/config.php';
 $date = date('Y-m-d');
 $fetch_count_users = $mysqli->query("SELECT * FROM users") or die(mysqli_error());
 $fetch_count_patients = $mysqli->query("SELECT * FROM patients") or die(mysqli_error());
-$fetch_count_appointments = $mysqli->query("SELECT * FROM appointments WHERE  status='0' AND date_format(date_added, '%Y-%m-%d')='$date'") or die(mysqli_error());
+$fetch_count_appointments = $mysqli->query("SELECT * FROM appointments WHERE  status='0'") or die(mysqli_error());
 $fetch_count_checkups = $mysqli->query("SELECT * FROM check_ups") or die(mysqli_error());
 ?>
 
@@ -70,7 +70,7 @@ $fetch_count_checkups = $mysqli->query("SELECT * FROM check_ups") or die(mysqli_
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Checkups:</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=dashboard" style="color: #222222;"><?= mysqli_num_rows($fetch_count_checkups)?></a></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=check_ups" style="color: #222222;"><?= mysqli_num_rows($fetch_count_checkups)?></a></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-check fa-2x text-gray-300"></i>

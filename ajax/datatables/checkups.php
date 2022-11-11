@@ -14,6 +14,7 @@
  		$list['count'] 				= $count++;
 		$list['cu_id'] 				= $row['cu_id'];
 		$list['patient'] 			= patientFullName($app_row['patient_id']);
+		$list['service'] 			= service_info("service",$row['service_id']);
 		$list['user_id'] 			= $row['user_id'];
 		$list['remarks'] 			= $row['remarks'];
 		$list['prescription'] 		= $row['prescription'];

@@ -20,10 +20,11 @@
 		      <div class="card" style="width: 100%;">
 		        <ul class="list-group list-group-flush">
 		        	<li class="list-group-item"><strong>Date:</strong> <?= date('F j,Y h:i A',strtotime($app_row['date_added']));?></li>
-		          <li class="list-group-item"><strong>Time:</strong> <?= date('h:i A',strtotime($app_row['app_time']));?></li>
-		          <li class="list-group-item"><strong>Description:</strong> <?= $app_row['description'];?></li>
-		          <li class="list-group-item"><strong>Encoded by:</strong> <?= userFullName($app_row['user_id']);?></li>
-		          <li class="list-group-item"><strong>Status:</strong> <?= getStatusDisplay($app_row['status']);?></li>
+		          	<li class="list-group-item"><strong>Time:</strong> <?= date('h:i A',strtotime($app_row['app_time']));?></li>
+		          	<li class="list-group-item"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
+		          	<li class="list-group-item"><strong>Description:</strong> <?= $app_row['description'];?></li>
+		          	<li class="list-group-item"><strong>Encoded by:</strong> <?= userFullName($app_row['user_id']);?></li>
+		          	<li class="list-group-item"><strong>Status:</strong> <?= getStatusDisplay($app_row['status']);?></li>
 		        </ul>
 		      </div>
 		    </div>

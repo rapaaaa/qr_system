@@ -42,6 +42,12 @@
             <span>Posts</span></a>
     </li>
 
+     <li class="nav-item">
+        <a class="nav-link" href="index.php?page=services">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Services</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

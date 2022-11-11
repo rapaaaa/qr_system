@@ -31,6 +31,19 @@
 					</div>
 
 					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Service:</strong></span></div>
+					  	<select class="form-control" name='service_id' required>
+	            			<option value=''>Please choose service:</option>
+	            			<?php
+	            				$fetch_service = $mysqli->query("SELECT * FROM services ORDER BY service ASC") or die(mysqli_error());
+								while ($service_row = $fetch_service->fetch_array()) {
+									echo "<option value='$service_row[service_id]'>".$service_row['service']."</option>";
+								}
+	            			?>
+	            		</select>
+					</div>
+
+					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Description:</strong></span></div>
 					  	<textarea class="form-control" name='description' required></textarea>
 					</div>

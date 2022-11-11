@@ -31,6 +31,7 @@
                                     <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_checkup')"></th>
                                     <th style="width: 5px;"></th>
                                     <th>Patient</th>
+                                    <th>Service</th>
                                     <th>Remarks</th>
                                     <th>Prescription</th>
                                     <th>Status</th>
@@ -106,6 +107,9 @@
             },
             {
                 "data":"patient"
+            },
+            {
+                "data":"service"
             },
             {
                 "data":"remarks"

@@ -9,6 +9,7 @@ while ($row = $fetch_user->fetch_array()) {
 	$list = array();
 	$list['app_id'] = $row['app_id'];
 	$list['patient_id'] = $row['patient_id'];
+	$list['service_id'] = $row['service_id'];
 	$list['queue_number'] = $row['queue_number'];
 	$list['app_time'] = $row['app_time'];
 	$list['description'] = $row['description'];
