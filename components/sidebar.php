@@ -71,6 +71,19 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <div class="sidebar-heading">
+        Report
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="index.php?page=checkup_per_service_report">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Checkup per service</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="sidebar-heading">
         Security
     </div>
 

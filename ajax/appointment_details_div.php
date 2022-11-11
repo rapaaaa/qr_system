@@ -20,7 +20,7 @@
   $finish_button = $count_check_up>0?"":"display:none;";
 
   //MEDICAL HISTORY
-  $fetch_medical_history = $mysqli->query("SELECT * FROM appointments AS a, check_ups AS c WHERE a.app_id=c.app_id AND a.patient_id='$patient_row[patient_id]'") or die(mysqli_error());
+  $fetch_medical_history = $mysqli->query("SELECT * FROM appointments AS a, check_ups AS c WHERE a.app_id=c.app_id AND a.patient_id='$patient_row[patient_id]' AND c.status='1'") or die(mysqli_error());
   $fetch_count_mh = mysqli_num_rows($fetch_medical_history);
 ?>
 <input type="hidden" id='cu_app_id' value="<?= $app_id?>">
@@ -167,6 +167,7 @@
                   <table id='patient_table' class="table table-bordered" width="100%" cellspacing="0">
                       <thead>
                           <tr>
+                              <th>Service</th>
                               <th>Prescription</th>
                               <th>Remarks</th>
                               <th>Date Added</th>
@@ -177,6 +178,7 @@
                           while ($mh_row = $fetch_medical_history->fetch_array()) {
                         ?>
                         <tr>
+                          <td><?=service_info("service",$mh_row['service_id'])?></td>
                           <td><?=$mh_row['prescription']?></td>
                           <td><?=$mh_row['remarks']?></td>
                           <td><?=date("F j, Y H:i A",strtotime($mh_row['date_added']));?></td>
