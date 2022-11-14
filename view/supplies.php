@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-3">
         <h1 class="h3 mb-0 text-gray-800">Medicine/Vaccine</h1>
     </div>
 
     <!-- Content Row -->
     <div class="row">
-        <div class="container-fluid">
+        <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <a href="#" class="btn btn-primary btn-icon-split btn-sm" data-toggle='modal' data-target='#addSupplyModal'>

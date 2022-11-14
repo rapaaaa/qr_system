@@ -48,11 +48,6 @@
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Username:</strong></span></div>
 					  	<input type="text" class="form-control" name="update_username" id="update_username" autocomplete="off" required>
 					</div>
-	            
-					<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Password:</strong></span></div>
-					  	<input type="text" class="form-control" name="update_password" id="update_password" autocomplete="off">
-					</div>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_update_save"><i class="fas fa-check-circle"></i> Save</button>

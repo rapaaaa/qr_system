@@ -1,37 +1,36 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Checkups</h1>
+        <h1 class="h3 mb-0 text-gray-800">Add Checkup</h1>
     </div>
 
     <!-- Content Row -->
-    <div class="col-lg-12" style="margin-bottom: 5px;">
-        <div class="row">
-            <div class="col-md-4"  style="margin-bottom: 5px;">
-                <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text"><strong>QR CODE:</strong></span></div>
-                    <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <div class="input-group col-sm-8">
+                        <div class="input-group-prepend"><span class="input-group-text"><strong>QR Code:</strong></span></div>
+                        <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()">
+
+                        <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
+                        <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
+                            <option value=''>Please choose queue #:</option>
+                            <?php 
+                                $date = date('Y-m-d');
+                                $fetch = $mysqli->query("SELECT * FROM appointments WHERE status='0' AND date_format(date_added, '%Y-%m-%d')='$date' ORDER BY queue_number") or die(mysqli_error());
+                                while ($row = $fetch->fetch_array()) {
+                            ?>
+                            <option value='<?=$row['app_id']?>'><?=$row['queue_number'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="input-group" style="width: 50%">
-                    <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
-                    <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
-                        <option value=''>Please choose queue #:</option>
-                        <?php 
-                            $date = date('Y-m-d');
-                            $fetch = $mysqli->query("SELECT * FROM appointments WHERE status='0' AND date_format(date_added, '%Y-%m-%d')='$date' ORDER BY queue_number") or die(mysqli_error());
-                            while ($row = $fetch->fetch_array()) {
-                        ?>
-                        <option value='<?=$row['app_id']?>'><?=$row['queue_number'] ?></option>
-                        <?php } ?>
-                    </select>
+                <div class="card-body">
+                    <div class="row" id="add_appointments"></div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-       <div class="col-lg-12" id="add_appointments"></div>
     </div>
 
 <script type="text/javascript">

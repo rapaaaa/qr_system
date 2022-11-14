@@ -10,14 +10,9 @@
 		$contact_number	= $_POST['update_contact_number'];	
 		$address		= $_POST['update_address'];
 		$username		= $_POST['update_username'];
-		$password		= $_POST['update_password'];
 
 		if(usernameChecker($username,$user_id)==0){
-			if($password==""){
-				$update_data = "category_id = '$category_id',first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name',contact_number = '$contact_number',address = '$address', username = '$username'";
-			}else{
-				$update_data = "category_id = '$category_id',first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name',contact_number = '$contact_number',address = '$address', username = '$username', password = md5('$password')";
-			}
+			$update_data = "category_id = '$category_id',first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name',contact_number = '$contact_number',address = '$address', username = '$username'";
 
 			$mysqli->query("UPDATE users SET $update_data WHERE user_id = '$user_id' ") or die(mysql_error());
 			echo 1;
