@@ -106,7 +106,7 @@
         }).get();
         id = [];
 
-        var confirmation = confirm("Are you sure you want to continue?");
+        var confirmation = confirm("Are you sure you want to delete?");
 
         if(confirmation == true){
             $.post("ajax/delete_check_up_supplies.php",

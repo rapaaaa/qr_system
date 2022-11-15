@@ -60,7 +60,7 @@
         }).get();
         id = [];
 
-        var confirmation = confirm("Are you sure you want to continue?");
+        var confirmation = confirm("Are you sure you want to delete?");
 
         if(confirmation == true){
             $.post("ajax/delete_appointment.php",
@@ -167,7 +167,7 @@
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
+                    return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
                 }
             },
              {

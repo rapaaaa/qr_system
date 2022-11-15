@@ -6,7 +6,7 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="exampleModalLabel">
 	                    <i class="fas fa-lock"></i>
-	                    <span class="text">Update Password</span></h5>
+	                    <span class="text">Update password</span></h5>
 	                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">×</span>
 	                </button>

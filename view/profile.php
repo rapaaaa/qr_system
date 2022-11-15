@@ -115,7 +115,7 @@ $row = $fetch->fetch_array();
             }else if(data==2){
               modified_alert("Oops!","The current password is incorrect.","warning");
             }else if(data==3){
-              modified_alert("Oops!","The new password is incorrect.","warning");
+              modified_alert("Oops!","The new passwords do not match.","warning");
             }else{
               warning_info();
             }
@@ -167,7 +167,7 @@ $row = $fetch->fetch_array();
                 $("#update_password").val(get_data[0].password);
                 $("#update_contact_number").val(get_data[0].contact_number);
                 $("#update_address").val(get_data[0].address);
-                $(".update_category").html(get_data[0].category);
+                $(".update_category").val(get_data[0].category);
 
                 //profile display
                 $("#img_sec_fullname").html(get_data[0].first_name+" "+get_data[0].last_name);

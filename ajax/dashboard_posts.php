@@ -12,7 +12,7 @@ if(mysqli_num_rows($fetch_dp)>0){
             role="button" aria-expanded="true" aria-controls="collapseCardExample<?= $dp_row['post_id']?>">
             <h5 class="m-0 font-weight-bold text-primary">Title: <?= $dp_row['title']?> </h5>
             <div class="font-weight-bold" style="font-size: 10px;color:#8f8b8b;">Author: <?= userFullName($dp_row['user_id']) ?></div>
-            <div class="font-weight-bold" style="font-size: 10px;color:#8f8b8b;">Date: <?=date("F j, Y H:i A",strtotime($dp_row['date_added']));?></div>
+            <div class="font-weight-bold" style="font-size: 10px;color:#8f8b8b;">Date: <?=date("F j, Y h:i A",strtotime($dp_row['date_added']));?></div>
         	
         </a>
         <!-- Card Content - Collapse -->

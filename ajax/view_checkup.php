@@ -13,50 +13,47 @@
 ?>
 
 <div class="col-lg-12">
-	<div class="row" style="padding: 10px;">
-		<div class="col-sm-6" style="border: solid 1px #ccc;border-radius: 5px;">
-		    <strong style="color: #4e73df;">Appointment Details:</strong>
-		    <div class="col-sm-12">
-		      <div class="card" style="width: 100%;">
-		        <ul class="list-group list-group-flush">
-		        	<li class="list-group-item"><strong>Date:</strong> <?= date('F j,Y h:i A',strtotime($app_row['date_added']));?></li>
-		          	<li class="list-group-item"><strong>Time:</strong> <?= date('h:i A',strtotime($app_row['app_time']));?></li>
-		          	<li class="list-group-item"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
-		          	<li class="list-group-item"><strong>Description:</strong> <?= $app_row['description'];?></li>
-		          	<li class="list-group-item"><strong>Encoded by:</strong> <?= userFullName($app_row['user_id']);?></li>
-		          	<li class="list-group-item"><strong>Status:</strong> <?= getStatusDisplay($app_row['status']);?></li>
-		        </ul>
-		      </div>
-		    </div>
+	<div class="row" style="padding: 5px;">
+		<div class="col-sm-6">
+        	<strong style="color: #4e73df;">Patient Profile:</strong>
+          	<div class="card" style="width: 100%;">
+	            <ul class="list-group list-group-flush" style="font-size: 13px;">
+	            	<li class="list-group-item" style="padding: 8px;"><strong>Name:</strong> <?=patientFullName($patient_row['patient_id'])?></li>
+	              	<li class="list-group-item" style="padding: 8px;"><strong>Gender:</strong> <?=patientGender($patient_row['gender'])?></li>
+	              	<li class="list-group-item" style="padding: 8px;"><strong>Contact #:</strong> <?= $patient_row['contact_number'];?></li>
+	              	<li class="list-group-item" style="padding: 8px;"><strong>Birdthday:</strong> <?= date("F j, Y",strtotime($patient_row['birthday']))?></li>
+	             	<li class="list-group-item" style="padding: 8px;"><strong>Address:</strong> <?= $patient_row['address']?></li>
+	            </ul>
+          </div>
 		</div>
 
-		<div class="col-sm-6" style="border: solid 1px #ccc;border-radius: 5px;">
-			<strong style="color: #4e73df;">Patient Profile:</strong>
-	        <div class="col-sm-12" style="margin-bottom: 2px;">
-	          <div class="card" style="width: 100%;">
-	          <div class="card-header"><strong>Name:</strong> <?= patientFullName($patient_row['patient_id'])?></div>
-	            <ul class="list-group list-group-flush">
-	              <li class="list-group-item"><strong>Gender:</strong> <?=patientGender($patient_row['gender'])?></li>
-	              <li class="list-group-item"><strong>Contact #:</strong> <?= $patient_row['contact_number'];?></li>
-	              <li class="list-group-item"><strong>Birdthday:</strong> <?= date("F j, Y",strtotime($patient_row['birthday']))?></li>
-	              <li class="list-group-item"><strong>Address:</strong> <?= $patient_row['address']?></li>
-	            </ul>
-	          </div>
-	        </div>
+		<div class="col-sm-6">
+	    	<strong style="color: #4e73df;">Appointment Details:</strong>
+	      	<div class="card" style="width: 100%;">
+		        <ul class="list-group list-group-flush" style="font-size: 13px;">
+		        	<li class="list-group-item" style="padding: 8px;"><strong>Date:</strong> <?= date('F j,Y h:i A',strtotime($app_row['date_added']));?></li>
+		          	<li class="list-group-item" style="padding: 8px;"><strong>Time:</strong> <?= date('h:i A',strtotime($app_row['app_time']));?></li>
+		          	<li class="list-group-item" style="padding: 8px;"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
+		          	<li class="list-group-item" style="padding: 8px;"><strong>Description:</strong> <?= $app_row['description'];?></li>
+		          	<li class="list-group-item" style="padding: 8px;"><strong>Encoded by:</strong> <?= userFullName($app_row['user_id']);?></li>
+		          	<li class="list-group-item" style="padding: 8px;"><strong>Status:</strong> <?= getStatusDisplay($app_row['status']);?></li>
+		        </ul>
+	      	</div>
 		</div>
 	</div>
 </div>
 
 <div class="col-lg-12">
 	<div class="row" style="padding: 10px;">
-		<div class="col-sm-12" style="border: solid 1px #ccc;border-radius: 5px;">
+		<div class="col-sm-12">
 			<strong style="color: #4e73df;">Used Supply:</strong>
 	        <div class="col-sm-12" style="margin-bottom: 2px;">
-	          	<div class="table-responsive">
+	          	<div class="table-responsive" style="font-size: 13px;">
                       <table id='cus_table' class="table table-bordered" width="100%" cellspacing="0">
                           <thead>
                               <tr>
                                   <th>Supply</th>
+                                  <th>Category</th>
                                   <th>Quantity</th>
                                   <th>Price</th>
                                   <th>Subtotal</th>
@@ -73,6 +70,7 @@
                           	?>
                           	<tr>
                           		<td><?= supply_info("name",$cus_row['supply_id']);?></td>
+                          		<td><?= supplyCategory(supply_info("supply_category",$cus_row['supply_id']));?></td>
                           		<td><?= number_format($cus_row['quantity']*1,2); ?></td>
                           		<td><?= number_format($cus_row['price']*1,2); ?></td>
                           		<td><?= number_format($subtotal*1,2) ?></td>
@@ -80,7 +78,7 @@
                           	<?php } ?>
                           <tfoot>
                               <tr>
-                                  <th colspan="3" style="text-align:right">Total:</th>
+                                  <th colspan="4" style="text-align:right">Total:</th>
                                   <th><?= number_format($total*1,2) ?></th>
                               </tr>
                           </tfoot>

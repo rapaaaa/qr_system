@@ -11,7 +11,7 @@
 		$list['service_id'] 	= $row['service_id'];
 		$list['service'] 		= $row['service'];
 		$list['service_fee'] 	= number_format($row['service_fee'],2);
-		$list['date_added'] 	= date("F j, Y H:i A",strtotime($row['date_added']));
+		$list['date_added'] 	= date("F j, Y h:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);
 	}

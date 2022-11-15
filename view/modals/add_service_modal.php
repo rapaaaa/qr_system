@@ -6,7 +6,7 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="exampleModalLabel">
 	                    <i class="fas fa-plus-circle"></i>
-	                    <span class="text">Add Service</span></h5>
+	                    <span class="text">Add service</span></h5>
 	                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">×</span>
 	                </button>

@@ -17,7 +17,7 @@
 		$list['address'] 			= $row['address'];
 		$list['username'] 			= $row['username'];
 		$list['encoded_by'] 		= userFullName($row['encoded_by']);
-		$list['date_added'] 		= date("F j, Y H:i A",strtotime($row['date_added']));
+		$list['date_added'] 		= date("F j, Y h:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);
 	}

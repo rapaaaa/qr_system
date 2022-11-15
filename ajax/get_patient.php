@@ -11,7 +11,7 @@
 		$list['first_name'] = $row['first_name'];
 		$list['middle_name'] = $row['middle_name'];
 		$list['last_name'] = $row['last_name'];
-		$list['gender'] = get_patientGenderDD($row['gender']);
+		$list['gender'] = $row['gender'];
 		$list['contact_number'] = $row['contact_number'];
 		$list['birthday'] = $row['birthday'];
 		$list['address'] = $row['address'];
@@ -23,12 +23,3 @@
 	}
 
 	echo json_encode($response);
-
-function get_patientGenderDD($gender){
-	$select1 = $gender=="M"?"selected":"";
-	$select2 = $gender=="F"?"selected":"";
-
-	$dropdown = "<option value='M' $select1> Male </option>
-	    		 <option value='F' $select2> Female </option>";
-	return $dropdown;
-}

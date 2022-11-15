@@ -3,7 +3,7 @@
 	$cu_id 			= $_POST['cu_id'];
 	$supply_id 		= $_POST['supply_id'];
 	$quantity 		= $_POST['supply_quantity'];
-	$date_added 	= date("Y-m-d H:i:s");
+	$date_added 	= $system_date;
 
 
 	$price = supply_info("price",$supply_id);

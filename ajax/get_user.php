@@ -19,7 +19,7 @@
 
 		//modified
 		$list['password'] = "";
-		$list['category'] = get_userTypeDD($row['category_id']);
+		$list['category'] = $row['category_id'];
 		$list['category_display'] = userCategory($row['category_id']);
 
 
@@ -27,12 +27,3 @@
 	}
 
 	echo json_encode($response);
-
-function get_userTypeDD($user_type){
-	$select1 = $user_type==1?"selected":"";
-	$select2 = $user_type==2?"selected":"";
-
-	$dropdown = "<option value='1' $select1> Doctor </option>
-	    		 <option value='2' $select2> Health Worker </option>";
-	return $dropdown;
-}

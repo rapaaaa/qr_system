@@ -13,14 +13,14 @@
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
-                        <span class="text">Add supply</span>
+                        <span class="text">Add medicine/vaccine</span>
                     </a>
 
                      <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>
-                        <span class="text">Delete selected supply</span>
+                        <span class="text">Delete selected medicine/vaccine</span>
                     </a>
                 </div>
                 <div class="card-body">
@@ -59,7 +59,7 @@
         }).get();
         id = [];
 
-        var confirmation = confirm("Are you sure you want to continue?");
+        var confirmation = confirm("Are you sure you want to delete?");
 
         if(confirmation == true){
             $.post("ajax/delete_supply.php",
@@ -110,7 +110,7 @@
                 $("#update_price").val(get_data[0].price);
                 $("#update_description").val(get_data[0].description);
                 $("#update_remarks").val(get_data[0].remarks);
-                $(".update_supply_category").html(get_data[0].supply_category);
+                $(".update_supply_category").val(get_data[0].supply_category);
         });
     }
 
@@ -158,7 +158,7 @@
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.supply_id+")'><span class='fa fa-edit'></span></button>";
+                    return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.supply_id+")'><span class='fa fa-edit'></span></button>";
                 }
             },
             {

@@ -6,7 +6,7 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="exampleModalLabel">
 	                    <i class="fas fa-edit"></i>
-	                    <span class="text">Update Profile</span></h5>
+	                    <span class="text">Update profile</span></h5>
 	                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">×</span>
 	                </button>
@@ -16,7 +16,11 @@
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
-					  	<select class="form-control update_category" name='update_category' id='update_category' required></select>
+					  	<select class="form-control update_category" name='update_category' id='update_category' required>
+					  		<option value=''>Please choose category:</option>
+	            			<option value='1'>Doctor</option>
+	            			<option value='2'>Health Worker</option>
+					  	</select>
 					</div>
 
 	            	<div class="input-group" style="margin-bottom: 5px;">

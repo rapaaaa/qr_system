@@ -12,18 +12,9 @@
 		$list['price'] = $row['price'];
 		$list['description'] = $row['description'];
 		$list['remarks'] = $row['remarks'];
-		$list['supply_category'] = get_supplyCategoryDD($row['supply_category']);
+		$list['supply_category'] = $row['supply_category'];
 
 		array_push($response, $list);
 	}
 
 	echo json_encode($response);
-
-function get_supplyCategoryDD($type_){
-	$select1 = $type_=="M"?"selected":"";
-	$select2 = $type_=="V"?"selected":"";
-
-	$dropdown = "<option value='M' $select1> Medicine </option>
-	    		 <option value='V' $select2> Vaccine </option>";
-	return $dropdown;
-}

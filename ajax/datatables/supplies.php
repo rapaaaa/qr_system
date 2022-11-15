@@ -15,7 +15,7 @@
 		$list['price'] 			= number_format($row['price'],2);
 		$list['description'] 	= $row['description'];
 		$list['remarks'] 		= $row['remarks'];
-		$list['date_added'] 	= date("F j, Y H:i A",strtotime($row['date_added']));
+		$list['date_added'] 	= date("F j, Y h:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);
 	}

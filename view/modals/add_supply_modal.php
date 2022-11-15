@@ -6,16 +6,16 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="exampleModalLabel">
 	                    <i class="fas fa-plus-circle"></i>
-	                    <span class="text">Add Supply</span></h5>
+	                    <span class="text">Add medicine/vaccine</span></h5>
 	                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">×</span>
 	                </button>
 	            </div>
 	            <div class="modal-body">
 	            	<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Supply Category:</strong></span></div>
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
 					  	<select class="form-control" name='supply_category' required>
-	            			<option value=''>Please choose supply category:</option>
+	            			<option value=''>Please choose category:</option>
 	            			<option value='M'>Medicine</option>
 	            			<option value='V'>Vaccine</option>
 	            		</select>

@@ -12,7 +12,7 @@
 		$list['author'] 		= userFullName($row['user_id']);
 		$list['title'] 			= $row['title'];
 		$list['content'] 		= $row['content'];
-		$list['date_added'] 	= date("F j, Y H:i A",strtotime($row['date_added']));
+		$list['date_added'] 	= date("F j, Y h:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);
 	}

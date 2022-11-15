@@ -6,7 +6,7 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="exampleModalLabel">
 	                    <i class="fas fa-edit"></i>
-	                    <span class="text">Update supply</span></h5>
+	                    <span class="text">Update medicine/vaccine</span></h5>
 	                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">×</span>
 	                </button>
@@ -15,9 +15,9 @@
 	            	<input type="hidden" name="update_supply_id" id="update_supply_id">
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Supply Category:</strong></span></div>
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
 					  	<select class="form-control update_supply_category" name='update_supply_category' id='update_supply_category' required>
-	            			<option value=''>Please choose supply category:</option>
+	            			<option value=''>Please choose category:</option>
 	            			<option value='M'>Medicine</option>
 	            			<option value='V'>Vaccine</option>
 	            		</select>

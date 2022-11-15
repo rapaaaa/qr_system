@@ -8,7 +8,7 @@
 		$username = $_POST['username'];
 		$password = $mysqli->real_escape_string($_POST['password']);
 		$category_id = $_POST['category_id'];
-		$date_added = date("Y-m-d H:i:s");
+		$date_added = $system_date;
 
 		if(usernameChecker($username,0)==0){
 			$sql = $mysqli->query("INSERT INTO users SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', username = '$username', password = md5('$password'), category_id = '$category_id', date_added = '$date_added'") OR die(mysql_error());

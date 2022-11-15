@@ -5,7 +5,7 @@
 	$service_id 	= $_POST['service_id'];
 	$remarks 		= $mysqli->real_escape_string($_POST['remarks']);
 	$prescription 	= $mysqli->real_escape_string($_POST['prescription']);
-	$date_added 	= date("Y-m-d H:i:s");
+	$date_added 	= $system_date;
 
 
 	$fetch_checkup 	= $mysqli->query("SELECT * FROM check_ups WHERE app_id='$app_id'") or die(mysqli_error());

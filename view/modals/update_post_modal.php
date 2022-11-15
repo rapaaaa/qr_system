@@ -6,7 +6,7 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="exampleModalLabel">
 	                    <i class="fas fa-edit"></i>
-	                    <span class="text">Update supply</span></h5>
+	                    <span class="text">Update post</span></h5>
 	                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">×</span>
 	                </button>

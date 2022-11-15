@@ -18,6 +18,7 @@
   $checkup_row = $fetch_checkup->fetch_array();
   $count_check_up = mysqli_num_rows($fetch_checkup);
   $finish_button = $count_check_up>0?"":"display:none;";
+  $save_button = $count_check_up>0?"disabled":"";
 
   //MEDICAL HISTORY
   $fetch_medical_history = $mysqli->query("SELECT * FROM appointments AS a, check_ups AS c WHERE a.app_id=c.app_id AND a.patient_id='$patient_row[patient_id]' AND c.status='1'") or die(mysqli_error());
@@ -91,8 +92,8 @@
 
             <div class="row">
               <div class="col-sm-12">
-                <span type="button" class="btn btn-success btn-sm" style="float: right;<?=$finish_button?>" onclick='finish_checkup()'><i class="fas fa-check-circle"></i> Finish Checkup</span>
-                <span type="button" class="btn btn-primary btn-sm" style="float: right;" onclick='save_checkup()'><i class="fas fa-check-circle"></i> Save Data</span>
+                <button class="btn btn-success btn-sm" style="float: right;<?=$finish_button?>" onclick='finish_checkup()'><i class="fas fa-check-circle"></i> Finish Checkup</button>
+                <button class="btn btn-primary btn-sm" style="float: right;" onclick='save_checkup()' <?=$save_button?>><i class="fas fa-check-circle"></i> Save Data</button>
               </div>
             </div>
           </div>

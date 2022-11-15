@@ -57,7 +57,7 @@
         }).get();
         id = [];
 
-        var confirmation = confirm("Are you sure you want to continue?");
+        var confirmation = confirm("Are you sure you want to delete?");
 
         if(confirmation == true){
             $.post("ajax/delete_user.php",
@@ -138,7 +138,7 @@
                 $("#update_last_name").val(get_data[0].last_name);
                 $("#update_username").val(get_data[0].username);
                 $("#update_password").val(get_data[0].password);
-                $(".update_category").html(get_data[0].category);
+                $(".update_category").val(get_data[0].category);
         });
     }
 
@@ -188,7 +188,7 @@
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.user_id+")'><span class='fa fa-edit'></span></button>";
+                    return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.user_id+")'><span class='fa fa-edit'></span></button>";
                 }
             },
             {

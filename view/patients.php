@@ -59,7 +59,7 @@
         }).get();
         id = [];
 
-        var confirmation = confirm("Are you sure you want to continue?");
+        var confirmation = confirm("Are you sure you want to delete?");
 
         if(confirmation == true){
             $.post("ajax/delete_patient.php",
@@ -137,7 +137,7 @@
                 $("#update_first_name").val(get_data[0].first_name);
                 $("#update_middle_name").val(get_data[0].middle_name);
                 $("#update_last_name").val(get_data[0].last_name);
-                $(".update_gender").html(get_data[0].gender);
+                $(".update_gender").val(get_data[0].gender);
                 $("#update_contact_number").val(get_data[0].contact_number);
                 $("#update_birthday").val(get_data[0].birthday);
                 $("#update_address").val(get_data[0].address);
@@ -190,7 +190,7 @@
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button type='button'class='btn btn-info btn-sm btn-fill' style='padding:5px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.patient_id+")'><span class='fa fa-edit'></span></button>";
+                    return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.patient_id+")'><span class='fa fa-edit'></span></button>";
                 }
             },
             {
