@@ -1,6 +1,6 @@
 <?php
 	$view = "view/";
-	//user_type==1(doctor) ||/user_type==2(healthworker)
+	//user_type==1(admin) ||/user_type==2(doctor)||/user_type==3(healthworker)
 
 	if($page == 'dashboard' || $page == ''){
 		require $view.'dashboard.php';
