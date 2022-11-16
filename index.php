@@ -4,7 +4,8 @@
     $user_type = $_SESSION['category_id'];
     $page = (isset($_GET['page']) && $_GET['page'] !='') ? $_GET['page'] : '';
     userlogin($_SESSION['user_id']);
-    $user_privilege = $user_type==1?"":"style='display: none'";//user_type==1(doctor)
+    $admin_and_doctor_privilege = $user_type==1 || $user_type==2?"":"style='display: none'"; //ADMIN AND DOCTOR
+    $admin_privilege = $user_type==1?"":"style='display: none'"; //ADMIN ONLY
 ?>
 
 <!DOCTYPE html>

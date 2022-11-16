@@ -18,8 +18,9 @@
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
 					  	<select class="form-control update_category" name='update_category' id='update_category' required>
 					  		<option value=''>Please choose category:</option>
-	            			<option value='1'>Doctor</option>
-	            			<option value='2'>Health Worker</option>
+	            			<option value='1'>Admin</option>
+	            			<option value='2'>Doctor</option>
+	            			<option value='3'>Health Worker</option>
 					  	</select>
 					</div>
 

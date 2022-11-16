@@ -6,7 +6,7 @@
 		require $view.'dashboard.php';
 	}else if($page == 'profile'){
 		require $view.'profile.php';
-	}else if($page == 'users' && $user_type==1){  //doctor only
+	}else if($page == 'users' && $user_type==1){  //admin only
 		require $view.'users.php';
 	}else if($page == 'patients'){
 		require $view.'patients.php';
@@ -16,9 +16,9 @@
 		require $view.'posts.php';
 	}else if($page == 'appointments'){
 		require $view.'appointments.php';
-	}else if($page == 'check_ups' && $user_type==1){ //doctor only
+	}else if($page == 'check_ups' && ($user_type==1 || $user_type==2)){ //admin and doctor
 		require $view.'check_ups.php';
-	}else if($page == 'add_checkup' && $user_type==1){ //doctor only
+	}else if($page == 'add_checkup' && ($user_type==1 || $user_type==2)){ //admin and doctor
 		require $view.'add_checkup.php';
 	}else if($page == 'services'){
 		require $view.'services.php';

@@ -15,15 +15,6 @@
 	            	<input type="hidden" name="update_user_id" id="update_user_id">
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Category:</strong></span></div>
-					  	<select class="form-control update_category" name='update_category' id='update_category' required>
-					  		<option value=''>Please choose category:</option>
-	            			<option value='1'>Doctor</option>
-	            			<option value='2'>Health Worker</option>
-					  	</select>
-					</div>
-
-	            	<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>First Name:</strong></span></div>
 					  	<input type="text" class="form-control" name="update_first_name" id="update_first_name" autocomplete="off" required>
 					</div>

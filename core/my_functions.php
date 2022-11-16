@@ -30,7 +30,7 @@ function supplyCategory($supply_category){
 }
 
 function userCategory($category_id){
-	$result = $category_id==1?"Doctor":(($category_id==2)?"Health Worker":(($category_id==3)?"Patient":""));
+	$result = $category_id==1?"Admin":(($category_id==2)?"Doctor":(($category_id==3)?"Health Worker":""));
 
 	return $result;
 }

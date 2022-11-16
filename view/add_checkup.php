@@ -5,13 +5,13 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row">
+    <div class="row" id="parameter_div">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <div class="input-group col-sm-8">
                         <div class="input-group-prepend"><span class="input-group-text"><strong>QR Code:</strong></span></div>
-                        <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()">
+                        <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()" autofocus>
 
                         <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
                         <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
@@ -66,10 +66,11 @@
         var cu_app_id = $("#cu_app_id").val();
         $.post("ajax/finish_checkup.php",{
             cu_app_id:cu_app_id
-        },function(data){
-            document.getElementById("app_id").value = "";
-            get_appointments();
+        },function(data){         
             success_finish();
+            $("#app_id").html(data); 
+            $("#qr_number").focus();
+            get_appointments();
         });
     }
 
@@ -85,7 +86,7 @@
             cu_app_id:cu_app_id
         },function(data){
             get_appointments();
-            success_update();
+            success_add();
         });
     }
 

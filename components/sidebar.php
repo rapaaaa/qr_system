@@ -62,7 +62,7 @@
     </li>
 
 
-    <li class="nav-item" <?= $user_privilege ?>>
+    <li class="nav-item" <?= $admin_and_doctor_privilege ?>>
         <a class="nav-link" href="index.php?page=check_ups">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Checkups</span></a>
@@ -84,11 +84,11 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <div class="sidebar-heading" <?= $user_privilege ?>>
+    <div class="sidebar-heading" <?= $admin_privilege ?>>
         Security
     </div>
 
-    <li class="nav-item" <?= $user_privilege ?>>
+    <li class="nav-item" <?= $admin_privilege ?>>
         <a class="nav-link" href="index.php?page=users">
             <i class="fas fa-fw fa-users"></i>
             <span>User Accounts</span></a>
