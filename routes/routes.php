@@ -2,7 +2,7 @@
 	$view = "view/";
 	//user_type==1(doctor) ||/user_type==2(healthworker)
 
-	if($page == 'dashboard'){
+	if($page == 'dashboard' || $page == ''){
 		require $view.'dashboard.php';
 	}else if($page == 'profile'){
 		require $view.'profile.php';
