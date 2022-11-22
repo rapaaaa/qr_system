@@ -33,7 +33,7 @@
                                     <th>Queue Number</th>
                                     <th>Patient</th>
                                     <th>Service</th>
-                                    <th>Time</th>
+                                    <th>Appointment Date</th>
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Date Added</th>
@@ -133,7 +133,6 @@
                     warning_info();
                     $("#addAppModal").modal('hide');
                 }
-
             }
         });
         $("#btn_add").prop('disabled', false);
@@ -144,6 +143,19 @@
         $.post("ajax/appointment_queue_number.php"
         ,function(data){
             $("#queue_number").val(data);
+        });
+    }
+
+    function approveAppointment(app_id){
+        $.post("ajax/approve_appointment.php",{
+            app_id:app_id
+        },function(data){
+            if(data == 1){
+                modified_alert("Great!","Data is successfully Approved.","success");
+                get_AppData();
+            }else{
+                warning_info();
+            }
         });
     }
 
@@ -165,7 +177,11 @@
             },
             {
                 "mRender":function(data, type, row){
-                    return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
+                    if(row.user_id==0){
+                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button>";
+                    }else{
+                        return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
+                    }
                 }
             },
              {

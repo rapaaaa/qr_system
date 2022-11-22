@@ -16,9 +16,9 @@
                         <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
                         <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
                             <option value=''>Please choose queue #:</option>
-                            <?php 
+                            <?php //Note: if user_id==0 pending appointment
                                 $date = date('Y-m-d');
-                                $fetch = $mysqli->query("SELECT * FROM appointments WHERE status='0' AND date_format(date_added, '%Y-%m-%d')='$date' ORDER BY queue_number") or die(mysqli_error());
+                                $fetch = $mysqli->query("SELECT * FROM appointments WHERE user_id!='0' AND status='0' AND date_format(app_time, '%Y-%m-%d')='$date' ORDER BY queue_number") or die(mysqli_error());
                                 while ($row = $fetch->fetch_array()) {
                             ?>
                             <option value='<?=$row['app_id']?>'><?=$row['queue_number'] ?></option>

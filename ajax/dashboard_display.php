@@ -3,7 +3,7 @@ include '../core/config.php';
 $date = date('Y-m-d');
 $fetch_count_users = $mysqli->query("SELECT * FROM users") or die(mysqli_error());
 $fetch_count_patients = $mysqli->query("SELECT * FROM patients") or die(mysqli_error());
-$fetch_count_appointments = $mysqli->query("SELECT * FROM appointments WHERE  status='0'") or die(mysqli_error());
+$fetch_count_appointments = $mysqli->query("SELECT * FROM appointments WHERE  user_id='0'") or die(mysqli_error());
 $fetch_count_checkups = $mysqli->query("SELECT * FROM check_ups") or die(mysqli_error());
 ?>
 
