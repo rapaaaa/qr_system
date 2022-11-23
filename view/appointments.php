@@ -178,7 +178,7 @@
             {
                 "mRender":function(data, type, row){
                     if(row.user_id==0){
-                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button>";
+                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 6px 7px 4px 6px;' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button>";
                     }else{
                         return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
                     }

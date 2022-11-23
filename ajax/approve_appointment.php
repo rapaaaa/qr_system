@@ -7,7 +7,7 @@
 		$row = $fetch->fetch_array();
 
 		$date = date('Y-m-d',strtotime($row['app_time']));
-		$fetch_appointments = $mysqli->query("SELECT MAX(queue_number) FROM appointments WHERE date_format(date_added, '%Y-%m-%d')='$date'") or die(mysqli_error());
+		$fetch_appointments = $mysqli->query("SELECT MAX(queue_number) FROM appointments WHERE date_format(app_time, '%Y-%m-%d')='$date'") or die(mysqli_error());
 		$count_data = mysqli_num_rows($fetch_appointments);
 		if($count_data==0){
 			$queue_number = 1;
