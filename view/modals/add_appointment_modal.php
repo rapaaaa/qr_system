@@ -12,9 +12,14 @@
 	                </button>
 	            </div>
 	            <div class="modal-body">
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
+					  	<input type="datetime-local" class="form-control" id="time" name="time" onchange='getQueueNumber()' required>
+					</div>
+
 	            	<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Queue number:</strong></span></div>
-					  	<input type="text" name="queue_number" class="form-control" id="queue_number" readonly>
+					  	<input type="text" name="queue_number" class="form-control" id="queue_number" readonly required>
 					</div>
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
@@ -46,11 +51,6 @@
 					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Description:</strong></span></div>
 					  	<textarea class="form-control" name='description' required></textarea>
-					</div>
-
-					<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
-					  	<input type="time" class="form-control" name="time" required>
 					</div>
 	            </div>
 	            <div class="modal-footer">

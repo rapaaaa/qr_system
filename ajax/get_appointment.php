@@ -11,7 +11,7 @@ while ($row = $fetch_user->fetch_array()) {
 	$list['patient_id'] = $row['patient_id'];
 	$list['service_id'] = $row['service_id'];
 	$list['queue_number'] = $row['queue_number'];
-	$list['app_time'] = date("H:i:s", strtotime($row['app_time']));
+	$list['app_time'] = date("Y-m-d H:i:s", strtotime($row['app_time']));
 	$list['description'] = $row['description'];
 
 	array_push($response, $list);

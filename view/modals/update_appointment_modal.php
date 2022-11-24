@@ -14,9 +14,15 @@
 
 	            <div class="modal-body">
 	            	<input type="hidden" name="update_app_id" id="update_app_id">
+
+	            	<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
+					  	<input type="datetime-local" class="form-control" name="update_app_time" id="update_app_time" required>
+					</div>
+
 	            	<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Queue number:</strong></span></div>
-					  	<input type="text" name="update_queue_number" class="form-control" id="update_queue_number" readonly>
+					  	<input type="text" name="update_queue_number" class="form-control" id="update_queue_number" readonly required>
 					</div>
 
 					<div class="input-group" style="margin-bottom: 5px;">
@@ -48,11 +54,6 @@
 					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Description:</strong></span></div>
 					  	<textarea class="form-control" name="update_description" id="update_description" autocomplete="off" required></textarea>
-					</div>
-
-					<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
-					  	<input type="time" class="form-control" name="update_app_time" id="update_app_time" required>
 					</div>
 	            </div>
 	            <div class="modal-footer">

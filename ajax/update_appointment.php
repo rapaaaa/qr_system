@@ -7,7 +7,7 @@
 		$patient_id		= $_POST['update_patient_id'];
 		$service_id		= $_POST['update_service_id'];
 		$description	= $_POST['update_description'];	
-		$app_time		= date("Y-m-d",strtotime($system_date))." ".date("H:i:s",strtotime($_POST['update_app_time']));
+		$app_time		= date("Y-m-d H:i:s",strtotime($_POST['update_app_time']));
 
 		$update_data 	= "patient_id = '$patient_id',service_id = '$service_id', description = '$description',queue_number='$queue_number',app_time='$app_time'";
 

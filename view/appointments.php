@@ -140,8 +140,13 @@
 
     function addAppModal(){
         $("#addAppModal").modal('show');
-        $.post("ajax/appointment_queue_number.php"
-        ,function(data){
+    }
+
+    function getQueueNumber(){
+        var appointment_time = $("#time").val();
+        $.post("ajax/appointment_queue_number.php",{
+            appointment_time:appointment_time
+        },function(data){
             $("#queue_number").val(data);
         });
     }

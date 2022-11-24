@@ -8,13 +8,8 @@
 
 		$date = date('Y-m-d',strtotime($row['app_time']));
 		$fetch_appointments = $mysqli->query("SELECT MAX(queue_number) FROM appointments WHERE date_format(app_time, '%Y-%m-%d')='$date'") or die(mysqli_error());
-		$count_data = mysqli_num_rows($fetch_appointments);
-		if($count_data==0){
-			$queue_number = 1;
-		}else{
-			$row = $fetch_appointments->fetch_array();
-			$queue_number = $row[0]+1;
-		}
+		$app_row = $fetch_appointments->fetch_array();
+		$queue_number = $app_row[0]+1;
 
 		$update_data 	= "user_id = '$user_id',queue_number='$queue_number'";
 
