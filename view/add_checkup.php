@@ -34,6 +34,21 @@
     </div>
 
 <script type="text/javascript">
+    function save_referral(){
+        var cu_id = $("#cu_id").val();
+        var referred_to = $("#referred_to").val();
+        var referral_remarks = $("#referral_remarks").val();
+      
+        $.post("ajax/save_referral.php",{
+            cu_id:cu_id,
+            referred_to:referred_to,
+            referral_remarks:referral_remarks
+        },function(data){
+            success_update();
+            get_ReferralData();
+        });
+    }
+
     function scan_qr_code(){
         var qr_number = $("#qr_number").val();
         $.post("ajax/scan_qr_code.php",{
@@ -99,7 +114,31 @@
         function(data){
             $("#add_appointments").html(data);
             get_CUSData();
+            get_ReferralData();
         });
+    }
+
+    function delete_ref(){
+         var checkedValues = $('.delete_check_box_ref:checkbox:checked').map(function() {
+            return this.value;
+        }).get();
+        id = [];
+
+        var confirmation = confirm("Are you sure you want to delete?");
+
+        if(confirmation == true){
+            $.post("ajax/delete_referral.php",
+            {
+                id:checkedValues
+            },function(data){
+                if(data == 1){
+                    success_delete();
+                    get_ReferralData();
+                }else{
+                    warning_info();
+                }   
+            });
+        }
     }
 
     function delete_cus(){
@@ -123,6 +162,39 @@
                 }   
             });
         }
+    }
+
+    function get_ReferralData() {
+        var cu_patient_id = $("#cu_patient_id").val();
+        $("#ref_table").DataTable().destroy();
+        $("#ref_table").DataTable({
+            "responsive": true,
+            "processing": true,
+            "ajax":{
+                "type":"POST",
+                "url":"ajax/datatables/referrals.php",
+                "dataSrc":"data", 
+                "data":{
+                    cu_patient_id:cu_patient_id
+                },
+            },
+            "columns":[
+            {
+                "mRender": function(data,type,row){
+                    return "<input type='checkbox' class='delete_check_box_ref' name='check_ref' value='"+row.r_id+"'>";                
+                }
+            },
+            {
+                "data":"referred_to"
+            },
+            {
+                "data":"referral_remarks"
+            },
+            {
+                "data":"date_added"
+            }
+            ]
+        });
     }
 
     function get_CUSData() {

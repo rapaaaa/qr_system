@@ -23,9 +23,14 @@
   //MEDICAL HISTORY
   $fetch_medical_history = $mysqli->query("SELECT * FROM appointments AS a, check_ups AS c WHERE a.app_id=c.app_id AND a.patient_id='$patient_row[patient_id]' AND c.status='1'") or die(mysqli_error());
   $fetch_count_mh = mysqli_num_rows($fetch_medical_history);
+
+  //REFERRAL
+  $fetch_referral = $mysqli->query("SELECT * FROM referrals AS r, check_ups AS c WHERE r.cu_id=c.cu_id AND c.app_id='$app_row[app_id]'") or die(mysqli_error());
+  $referral_row = $fetch_referral->fetch_array();
 ?>
 <input type="hidden" id='cu_app_id' value="<?= $app_id?>">
 <input type="hidden" id='cu_id' value="<?= $checkup_row['cu_id']?>">
+<input type="hidden" id='cu_patient_id' value="<?= $patient_row['patient_id']?>">
 <div class="col-lg-12">
   <div class="row">
     <div class="col-md-4">
@@ -51,6 +56,7 @@
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-c-tab" data-toggle="tab" href="#nav-c" role="tab" aria-controls="nav-c" aria-selected="true"><strong>Checkup</strong></a>
             <a class="nav-item nav-link" id="nav-mvu-tab" data-toggle="tab" href="#nav-mvu" role="tab" aria-controls="nav-mvu" aria-selected="false"><strong>Medicines/Vaccines Used</strong></a>
+            <a class="nav-item nav-link" id="nav-ref-tab" data-toggle="tab" href="#nav-ref" role="tab" aria-controls="nav-ref" aria-selected="false"><strong>Referral</strong></a>
             <a class="nav-item nav-link" id="nav-mh-tab" data-toggle="tab" href="#nav-mh" role="tab" aria-controls="nav-mh" aria-selected="false"><strong>Medical History</strong></a>
             <a class="nav-item nav-link" id="nav-pp-tab" data-toggle="tab" href="#nav-pp" role="tab" aria-controls="nav-pp" aria-selected="false"><strong>Patient Profile</strong></a>
           </div>
@@ -78,14 +84,14 @@
               <div class="col-sm-12" style="margin-bottom: 5px;">
                 <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text"><strong>Prescription:</strong></span></div>
-                  <textarea class="form-control" id="cu_prescription" autocomplete="off"><?=$checkup_row['prescription']?></textarea>
+                  <textarea class="form-control" id="cu_prescription" autocomplete="off" rows="4"><?=$checkup_row['prescription']?></textarea>
                 </div>
               </div>
 
               <div class="col-sm-12" style="margin-bottom: 5px;">
                 <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text"><strong>Remarks:</strong></span></div>
-                  <textarea class="form-control" id="cu_remarks" autocomplete="off"><?=$checkup_row['remarks']?></textarea>
+                  <textarea class="form-control" id="cu_remarks" autocomplete="off" rows="4"><?=$checkup_row['remarks']?></textarea>
                 </div>
               </div>
             </div>
@@ -156,6 +162,60 @@
                 </div>
               </div>
             <?php } ?>
+          </div>
+
+          <!------------------------------ REFERRAL-------------------------------------->
+          <div class="tab-pane fade" id="nav-ref" role="tabpanel" aria-labelledby="nav-ref-tab"><br>
+            <?php if($count_check_up>0){ ?>
+              <div class="row" style="margin-bottom: 5px;">
+                <div class="col-sm-12" style="margin-bottom: 5px;">
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><strong>Referred to:</strong></span></div>
+                    <input type="text" class="form-control" id="referred_to" autocomplete="off" value="<?=$referral_row['referred_to']?>" required>
+                  </div>
+                </div>
+
+                <div class="col-sm-12" style="margin-bottom: 5px;">
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><strong>Remarks:</strong></span></div>
+                    <textarea class="form-control" id="referral_remarks" autocomplete="off" rows="4"><?=$referral_row['referral_remarks']?></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <button class="btn btn-primary btn-sm" style="float: right;" onclick='save_referral()'><i class="fas fa-check-circle"></i> Save Data</button>
+                </div>
+              </div>
+
+              <hr style="border: solid 1px #ccc;">
+            <?php } ?>
+
+            <div class="row" style="margin-bottom: 5px;">
+              <div class="col-sm-12">
+                <span type="button" class="btn btn-danger btn-sm" style="float: right;" onclick='delete_ref()'><i class="fas fa-check-circle"></i> Delete Selected Referral</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table id='ref_table' class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_ref')"></th>
+                                <th>Referred to</th>
+                                <th>Referral remarks</th>
+                                <th>Date Added</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!------------------------------ Medical History-------------------------------------->
