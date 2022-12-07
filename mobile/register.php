@@ -9,7 +9,7 @@ require_once 'core/config.php';
 
 $data = json_decode(file_get_contents("php://input"));
 
-if(isset($data->username) && !empty($data->username) ){
+//if(isset($data->username)){
 	$first_name = $mysqli_connect->real_escape_string($data->first_name);
 	$middle_name = $mysqli_connect->real_escape_string($data->middle_name);
 	$last_name = $mysqli_connect->real_escape_string($data->last_name);
@@ -17,30 +17,35 @@ if(isset($data->username) && !empty($data->username) ){
 	$birthday = $mysqli_connect->real_escape_string($data->birthday);
 	$contact_number = $mysqli_connect->real_escape_string($data->contact_number);
     $address = $mysqli_connect->real_escape_string($data->address);
-    $category = "R";
 	
 	$username = $mysqli_connect->real_escape_string($data->username);
 	$password = $mysqli_connect->real_escape_string($data->password);
 
 	$date = getCurrentDate();
 
-	$fetch_rows = $mysqli_connect->query("SELECT count(patient_id) from patients where username='$username' ") or die(mysqli_error());
+	$fetch_rows = $mysqli_connect->query("SELECT count(patient_id) from patients where username='$username'") or die(mysqli_error());
 	$count_rows = $fetch_rows->fetch_array();
 
 	if($count_rows[0] > 0){
-		echo -1;
+// 		$response['user_id'] = 0;
+// 		$response['response'] = -1;
+        echo -1;
 	}else{
 		$sql= $mysqli_connect->query("INSERT INTO `patients` (`first_name`, `middle_name`, `last_name`, `gender`, `contact_number`, `birthday`, `address`, `username`, `password`,`date_added`) VALUES ('$first_name','$middle_name','$last_name','$gender','$contact_number','$birthday','$address','$username',md5('$password'),'$date')");
 			
 		if($sql){
 			$user_id = $mysqli_connect->insert_id;
 			echo $user_id;
+// 			$response['user_id'] = $user_id;
+// 			$response['response'] = 1;
 		}else{
-			echo 0;
+// 			$response['user_id'] = 0;
+// 			$response['response'] = 0;
+            echo 0;
 		}
 		
 	}
 	
-}
+//}
 
 ?>
