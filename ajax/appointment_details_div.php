@@ -52,7 +52,7 @@
     </div>
     <div class="col-md-8">
       <div class="col-sm-12" style="border: solid 1px #ccc;border-radius: 5px;padding: 10px;">
-        <nav>
+        <nav style="font-size: 15px;">
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-c-tab" data-toggle="tab" href="#nav-c" role="tab" aria-controls="nav-c" aria-selected="true"><strong>Checkup</strong></a>
             <a class="nav-item nav-link" id="nav-mvu-tab" data-toggle="tab" href="#nav-mvu" role="tab" aria-controls="nav-mvu" aria-selected="false"><strong>Medicines/Vaccines Used</strong></a>
