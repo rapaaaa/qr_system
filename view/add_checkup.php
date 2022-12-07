@@ -11,7 +11,7 @@
                 <div class="card-header py-3">
                     <div class="input-group col-sm-8">
                         <div class="input-group-prepend"><span class="input-group-text"><strong>QR Code:</strong></span></div>
-                        <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onkeyup="scan_qr_code()" autofocus>
+                        <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()" autofocus>
 
                         <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
                         <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
@@ -56,11 +56,12 @@
         },function(data){
             if(data==0){
                 modified_alert("Oops!","Invalid QR Code.","warning");
+            }else{
+                modified_alert("Success!","This patient has an appointment.","success");
             }
-          
+            $("#qr_number").focus().select();
             document.getElementById("app_id").value = data;
             get_appointments();
-            $("#qr_number").focus().select();
         });
     }
 
