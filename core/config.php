@@ -10,6 +10,7 @@
 	define("DB_DATABASE", "u981310152_qrsystem_db");
 
 
+	
 	ini_set('date.timezone','UTC');
 	//error_reporting(E_ALL);
 	date_default_timezone_set('UTC');
