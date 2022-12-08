@@ -12,6 +12,7 @@
                     <div class="input-group col-sm-8">
                         <div class="input-group-prepend"><span class="input-group-text"><strong>QR Code:</strong></span></div>
                         <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()" autofocus>
+                        <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" onclick="clear_qr_input()"><i class="fa fa-times"></i></button>
 
                         <div class="input-group-prepend"><span class="input-group-text"><strong>Queue Number:</strong></span></div>
                         <select class="form-control input-sm" name='app_id' id='app_id' required onchange="get_appointments()">
@@ -34,6 +35,10 @@
     </div>
 
 <script type="text/javascript">
+    function clear_qr_input(){
+        $("#qr_number").val("").focus();
+    }
+
     function save_referral(){
         var cu_id = $("#cu_id").val();
         var referred_to = $("#referred_to").val();
