@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <div class="input-group col-sm-8">
+                    <div class="input-group col-sm-12">
                         <div class="input-group-prepend"><span class="input-group-text"><strong>QR Code:</strong></span></div>
                         <input type="text" name="qr_number" class="form-control" id="qr_number" autocomplete="off" onchange="scan_qr_code()" autofocus>
                         <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" onclick="clear_qr_input()"><i class="fa fa-times"></i></button>
@@ -23,6 +23,18 @@
                                 while ($row = $fetch->fetch_array()) {
                             ?>
                             <option value='<?=$row['app_id']?>'><?=$row['queue_number'] ?></option>
+                            <?php } ?>
+                        </select>
+
+                        <div class="input-group-prepend"><span class="input-group-text"><strong>Resident:</strong></span></div>
+                        <select class="form-control input-sm select2" name='patient_id' id='patient_id'>
+                            <option value=''>Please choose resident:</option>
+                            <?php //Note: if user_id==0 pending appointment
+                                $date = date('Y-m-d');
+                                $fetch = $mysqli->query("SELECT * FROM appointments WHERE user_id!='0' AND status='0' AND date_format(app_time, '%Y-%m-%d')='$date' ORDER BY queue_number") or die(mysqli_error());
+                                while ($row = $fetch->fetch_array()) {
+                            ?>
+                            <option value='<?=$row['app_id']?>'><?=patientFullName($row['patient_id']) ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -118,11 +130,25 @@
            app_id:app_id
         },
         function(data){
+            document.getElementById("app_id").value = app_id;
             $("#add_appointments").html(data);
             get_CUSData();
             get_ReferralData();
         });
     }
+
+    $('#patient_id').on('select2:select', function (e) {
+        var patient_id = $("#patient_id").val();
+        $.post("ajax/appointment_details_div.php",{
+           app_id:patient_id
+        },
+        function(data){
+            document.getElementById("app_id").value = patient_id;
+            $("#add_appointments").html(data);
+            get_CUSData();
+            get_ReferralData();
+        });
+    });
 
     function delete_ref(){
          var checkedValues = $('.delete_check_box_ref:checkbox:checked').map(function() {
@@ -227,7 +253,7 @@
  
             // Total over all pages
             total = api
-                .column(4)
+                .column(2)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -235,14 +261,14 @@
  
             // Total over this page
             pageTotal = api
-                .column(4, { page: 'current' })
+                .column(2, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(4).footer()).html(total.toFixed(2));
+            $(api.column(2).footer()).html(total.toFixed(2));
         },
             "columns":[
             {
@@ -256,17 +282,18 @@
             {
                 "data":"quantity"
             },
-            {
-                "data":"price"
-            },
-            {
-                "data":"subtotal"
-            }
+            // {
+            //     "data":"price"
+            // },
+            // {
+            //     "data":"subtotal"
+            // }
             ]
         });
     }
 
 $(document).ready(function() {
+    $(".select2").select2();
     get_appointments();
 });
 </script>

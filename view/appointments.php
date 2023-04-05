@@ -29,13 +29,14 @@
                             <thead>
                                 <tr>
                                     <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_app')"></th>
-                                    <th style="width: 5px;"></th>
+                                    <th style="color: transparent;">ACTIONS</th>
                                     <th>Queue Number</th>
-                                    <th>Patient</th>
+                                    <th>Resident</th>
                                     <th>Service</th>
                                     <th>Appointment Date</th>
                                     <th>Description</th>
                                     <th>Status</th>
+                                    <th>Approved By</th>
                                     <th>Date Added</th>
                                 </tr>
                             </thead>
@@ -54,6 +55,22 @@
     ?>
 
 <script type="text/javascript">
+    function cancelAppointment(app_id){
+        var confirmthis = confirm("Are you sure you want to Cancel appointment?");
+        if(confirmthis==true){
+            $.post("ajax/cancel_appointment.php",{
+                app_id:app_id
+            },function(data){
+                if(data == 1){
+                    modified_alert("Great!","Data is successfully Canceled.","success");
+                    get_AppData();
+                }else{
+                    warning_info();
+                }
+            });
+        }
+    }
+
     function deleteEntry(){
         var checkedValues = $('.delete_check_box:checkbox:checked').map(function() {
             return this.value;
@@ -87,6 +104,12 @@
                     $("#UpdateAppointmentModal").modal('hide');
                     success_update();
                     get_AppData();
+                }else if(data == 2){
+                    modified_alert("Warning!","The doctor is unavailable.","warning");
+                    $("#addAppModal").modal('hide');
+                }else if(data == 3){
+                    modified_alert("Warning!","The doctor's schedule is already fully occupied.","warning");
+                    $("#addAppModal").modal('hide');
                 }else{
                     warning_info();
                     $("#UpdateAppointmentModal").modal('hide');
@@ -129,6 +152,12 @@
                     $("#form_add_appointment").each(function(){
                        this.reset();
                     });
+                }else if(data == 2){
+                    modified_alert("Warning!","The doctor is unavailable.","warning");
+                    $("#addAppModal").modal('hide');
+                }else if(data == 3){
+                    modified_alert("Warning!","The doctor's schedule is already fully occupied.","warning");
+                    $("#addAppModal").modal('hide');
                 }else{
                     warning_info();
                     $("#addAppModal").modal('hide');
@@ -183,9 +212,10 @@
             {
                 "mRender":function(data, type, row){
                     if(row.user_id==0){
-                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 6px 7px 4px 6px;' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button>";
+                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button> <button class='btn btn-warning btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Cancel Appointment' onclick='cancelAppointment("+row.app_id+")'><span class='fa fa-times-circle'></span></button>";
                     }else{
-                        return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
+                        return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button> <button class='btn btn-warning btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Cancel Appointment' onclick='cancelAppointment("+row.app_id+")'><span class='fa fa-times-circle'></span></button>";
+
                     }
                 }
             },
@@ -206,6 +236,9 @@
             },
             {
                 "data":"status"
+            },
+            {
+                "data":"approved_by"
             },
             {
                 "data":"date_added"

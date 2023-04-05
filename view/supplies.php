@@ -32,7 +32,7 @@
                                     <th style="width: 5px;"></th>
                                     <th>Name</th>
                                     <th>Category</th>
-                                    <th>Price</th>
+                                    <!-- <th>Price</th> -->
                                     <th>Description</th>
                                     <th>Remarks</th>
                                     <th>Date Added</th>
@@ -167,9 +167,9 @@
             {
                 "data":"category"
             },
-            {
-                "data":"price"
-            },
+            // {
+            //     "data":"price"
+            // },
             {
                 "data":"description"
             },

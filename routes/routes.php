@@ -24,6 +24,8 @@
 		require $view.'services.php';
 	}else if($page == 'checkup_per_service_report'){
 		require $view.'checkup_per_service_report.php';
+	}else if($page == 'doctor_schedule'){
+		require $view.'doctor_schedule.php';
 	}else{
 		require $view.'404.php';
 	}

@@ -3,46 +3,27 @@
 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
     <i class="fa fa-bars"></i>
 </button>
-<h5>QR SYSTEM FOR VACCINATION AND MEDICATION OF BARANGAY ZONE 6</h5>
+<h5>E-Center: Brgy Zone-6 Health Documentation System</h5>
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
     <!-- Nav Item - Alerts -->
-    <li class="nav-item dropdown no-arrow mx-1">
-       <!--  <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+    <li class="nav-item dropdown no-arrow mx-1" <?=$admin_and_doctor_privilege?>>
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell fa-fw"></i>
+            <i class="fas fa-bell fa-fw" style="font-size: 20px;"></i>
 
-            <span class="badge badge-danger badge-counter">2+</span>
-        </a> -->
+            <span id="notif_counter"></span>
+        </a>
         <!-- Dropdown - Alerts -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="alertsDropdown">
             <h6 class="dropdown-header">
                 Notification
             </h6>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                        <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">Alert! New Patient</span>
-                </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                        <i class="fas fa-donate text-white"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    Alert! New appointment
-                </div>
-            </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <div style="overflow-y: scroll; height:250px;">
+                <span id="notif_list"></span>
+            </div>
+            <a class="dropdown-item text-center small text-gray-500" href="#" onclick="notif_mark_as_read(0)">Mark all as read</a>
         </div>
     </li>
 

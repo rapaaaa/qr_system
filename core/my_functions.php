@@ -69,14 +69,22 @@ function usernameChecker($username,$update_user_id){
 	return $result;
 }
 
-function getStatusDisplay($status){
-	$result = $status==0?"<span style='color:orange'>Saved</span>":(($status==1)?"<span style='color:green'>Finished</span>":"");
+function getStatusDisplay($status,$user_id){
+
+
+	$result = $status==0 && $user_id!=0?"<span style='color:orange'>Saved</span>":(($status==1 && $user_id!=0)?"<span style='color:green'>Finished</span>":(($status==2)?"<span style='color:red'>Canceled</span>":(($user_id==0)?"<span style='color:#4e73df;'>Pending</span>":"")));
 
 	return $result;
 }
 
 function getStatusDisplayDisable($status){
 	$result = $status==0?"":(($status==1)?"disabled":"");
+
+	return $result;
+}
+
+function getStatusDisplayNone($status){
+	$result = $status==0?"":(($status==1)?"display:none;":(($status==2)?"display:none;":""));
 
 	return $result;
 }

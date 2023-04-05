@@ -6,6 +6,7 @@
     userlogin($_SESSION['user_id']);
     $admin_and_doctor_privilege = $user_type==1 || $user_type==2?"":"style='display: none'"; //ADMIN AND DOCTOR
     $admin_privilege = $user_type==1?"":"style='display: none'"; //ADMIN ONLY
+    $doctor_privilege = $user_type==2?"":"style='display: none'"; //DOCTOR ONLY
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>QR SYSTEM <?= date('Y')?></title>
+    <title>E-Center <?= date('Y')?></title>
     <link rel="icon" href="assets/img/hospital-alt-solid.svg">
 
     <!-- Custom fonts for this template-->
@@ -27,7 +28,15 @@
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="assets/datatables/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/notif/notif.css">
+
+    <!-- Select 2-->
+    <link href="assets/css/select2.min.css" rel="stylesheet" />
 </head>
+<style type="text/css">
+    .select2-selection{
+        height: 100% !important;
+    }
+</style>
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -49,6 +58,7 @@
         <script src="assets/js/demo/chart-pie-demo.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/notif/notif.js"></script>
+        <script src="assets/js/select2.min.js"></script>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
@@ -78,7 +88,33 @@
 
 <script type="text/javascript">
    $(document).ready(function() { 
+        notif_counter();
+        notif_list();
     });
+
+    function notif_mark_as_read(app_id){
+        $.post("ajax/notif_mark_as_read.php",{
+            app_id:app_id
+        },function(data){
+            notif_list();
+            notif_counter();
+            modified_alert("Great!","Data marked as read successfully.","success");
+        });
+    }
+
+    function notif_list(){
+        $.post("ajax/notif_list.php",
+        function(data){
+            $("#notif_list").html(data);
+        });
+    }
+
+    function notif_counter(){
+        $.post("ajax/notif_counter.php",
+        function(data){
+            $("#notif_counter").html(data);
+        });
+    }
 
     function logout(){
       $.post("ajax/logout.php",{},function(data){

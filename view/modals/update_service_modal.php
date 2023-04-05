@@ -19,10 +19,10 @@
 					  	<input type="text" class="form-control" name="update_service" id="update_service" autocomplete="off" required>
 					</div>
 
-					<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Service Fee:</strong></span></div>
-					  	<input type="number" class="form-control" name="update_service_fee" id="update_service_fee" step=".01" autocomplete="off" required>
-					</div>
+					<!-- <div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Service Fee:</strong></span></div> -->
+					  	<input type="hidden" class="form-control" name="update_service_fee" id="update_service_fee" step=".01" autocomplete="off">
+					<!-- </div> -->
 	            </div>
 	            <div class="modal-footer">
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_update_save"><i class="fas fa-check-circle"></i> Save</button>

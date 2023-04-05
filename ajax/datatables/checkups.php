@@ -18,7 +18,7 @@
 		$list['user_id'] 			= $row['user_id'];
 		$list['remarks'] 			= $row['remarks'];
 		$list['prescription'] 		= $row['prescription'];
-		$list['status'] 			= getStatusDisplay($row['status']);
+		$list['status'] 			= getStatusDisplay($row['status'],$row['user_id']);
 		$list['date_added'] 		= date("F j, Y h:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);

@@ -25,6 +25,13 @@
     </div>
 
     <li class="nav-item">
+        <a class="nav-link" href="index.php?page=doctor_schedule">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Doctor Schedule</span></a>
+    </li>
+
+
+    <li class="nav-item">
         <a class="nav-link" href="index.php?page=supplies">
             <i class="fas fa-fw fa-box-open"></i>
             <span>Medicine/Vaccine</span></a>
@@ -33,16 +40,16 @@
     <li class="nav-item">
         <a class="nav-link" href="index.php?page=patients">
             <i class="fas fa-fw fa-hospital-user"></i>
-            <span>Patients</span></a>
+            <span>Residents</span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" <?= $admin_privilege ?>>
         <a class="nav-link" href="index.php?page=posts">
             <i class="fas fa-fw fa-comment"></i>
             <span>Posts</span></a>
     </li>
 
-     <li class="nav-item">
+     <li class="nav-item" <?= $admin_privilege ?>>
         <a class="nav-link" href="index.php?page=services">
             <i class="fas fa-fw fa-list"></i>
             <span>Services</span></a>
@@ -55,12 +62,11 @@
         Transactions
     </div>
 
-     <li class="nav-item">
+     <li class="nav-item" <?= $admin_and_doctor_privilege ?>>
         <a class="nav-link" href="index.php?page=appointments">
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Appointments</span></a>
     </li>
-
 
     <li class="nav-item" <?= $admin_and_doctor_privilege ?>>
         <a class="nav-link" href="index.php?page=check_ups">
@@ -71,11 +77,11 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <div class="sidebar-heading">
+    <div class="sidebar-heading" <?= $admin_privilege ?>>
         Report
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item" <?= $admin_privilege ?>>
         <a class="nav-link" href="index.php?page=checkup_per_service_report">
             <i class="fas fa-fw fa-list"></i>
             <span>Checkup per service</span></a>

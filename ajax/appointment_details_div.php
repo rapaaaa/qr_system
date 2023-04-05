@@ -44,7 +44,7 @@
               <li class="list-group-item"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
               <li class="list-group-item"><strong>Description:</strong> <?= $app_row['description'];?></li>
               <li class="list-group-item"><strong>Encoded by:</strong> <?= $app_id==""?"":userFullName($app_row['user_id']);?></li>
-              <li class="list-group-item"><strong>Status:</strong> <?= $app_id==""?"":getStatusDisplay($app_row['status']);?></li>
+              <li class="list-group-item"><strong>Status:</strong> <?= $app_id==""?"":getStatusDisplay($app_row['status'],$app_row['user_id']);?></li>
             </ul>
           </div>
         </div>
@@ -58,7 +58,7 @@
             <a class="nav-item nav-link" id="nav-mvu-tab" data-toggle="tab" href="#nav-mvu" role="tab" aria-controls="nav-mvu" aria-selected="false"><strong>Medicines/Vaccines Used</strong></a>
             <a class="nav-item nav-link" id="nav-ref-tab" data-toggle="tab" href="#nav-ref" role="tab" aria-controls="nav-ref" aria-selected="false"><strong>Referral</strong></a>
             <a class="nav-item nav-link" id="nav-mh-tab" data-toggle="tab" href="#nav-mh" role="tab" aria-controls="nav-mh" aria-selected="false"><strong>Medical History</strong></a>
-            <a class="nav-item nav-link" id="nav-pp-tab" data-toggle="tab" href="#nav-pp" role="tab" aria-controls="nav-pp" aria-selected="false"><strong>Patient Profile</strong></a>
+            <a class="nav-item nav-link" id="nav-pp-tab" data-toggle="tab" href="#nav-pp" role="tab" aria-controls="nav-pp" aria-selected="false"><strong>Resident Profile</strong></a>
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -145,15 +145,15 @@
                                   <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_cus')"></th>
                                   <th>Supply</th>
                                   <th>Quantity</th>
-                                  <th>Price</th>
-                                  <th>Subtotal</th>
+                                  <!-- <th>Price</th>
+                                  <th>Subtotal</th> -->
                               </tr>
                           </thead>
                           <tbody>
                           </tbody>
                           <tfoot>
                               <tr>
-                                  <th colspan="4" style="text-align:right">Total:</th>
+                                  <th colspan="2" style="text-align:right">Total:</th>
                                   <th></th>
                               </tr>
                           </tfoot>

@@ -5,9 +5,9 @@
 	// define("DB_DATABASE", "health_center_db");
 
 	define("DB_SERVER", "localhost");
-	define("DB_USER", "u981310152_qrsystem_root");
-	define("DB_PASSWORD", "0wt@8>L=i^T");
-	define("DB_DATABASE", "u981310152_qrsystem_db");
+	define("DB_USER", "root");
+	define("DB_PASSWORD", "");
+	define("DB_DATABASE", "health_center_db");
 
 
 	

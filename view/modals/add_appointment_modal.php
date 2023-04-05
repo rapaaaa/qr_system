@@ -14,7 +14,7 @@
 	            <div class="modal-body">
 					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
-					  	<input type="datetime-local" class="form-control" id="time" name="time" onchange='getQueueNumber()' required>
+					  	<input type="date" class="form-control" id="time" name="time" onchange='getQueueNumber()' required>
 					</div>
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
@@ -23,9 +23,9 @@
 					</div>
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Patient:</strong></span></div>
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Resident:</strong></span></div>
 					  	<select class="form-control" name='patient_id' required>
-	            			<option value=''>Please choose patient:</option>
+	            			<option value=''>Please choose resident:</option>
 	            			<?php
 	            				$fetch_patient = $mysqli->query("SELECT * FROM patients ORDER BY first_name ASC") or die(mysqli_error());
 								while ($patient_row = $fetch_patient->fetch_array()) {

@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>QR SYSTEM <?= date('Y')?></title>
+    <title>E-Center <?= date('Y')?></title>
+    <link rel="icon" href="../assets/img/hospital-alt-solid.svg">
 
     <!-- Custom fonts for this template-->
     <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +36,7 @@
                                 <div class="p-5">
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4"> QR SYSTEM FOR VACCINATION AND MEDICATION OF BARANGAY ZONE 6</h1>
+                                        <h1 class="h4 text-gray-900 mb-4"> E-Center: Brgy Zone-6 Health Documentation System</h1>
                                     </div>
                                     <h5 style="color: #d12727;display: none;" id="error">Incorrect Username & Password</h5>
                                     <form role="form" method="POST" id="form_submit">

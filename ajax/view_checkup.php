@@ -36,7 +36,7 @@
 		          	<li class="list-group-item" style="padding: 8px;"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
 		          	<li class="list-group-item" style="padding: 8px;"><strong>Description:</strong> <?= $app_row['description'];?></li>
 		          	<li class="list-group-item" style="padding: 8px;"><strong>Encoded by:</strong> <?= userFullName($app_row['user_id']);?></li>
-		          	<li class="list-group-item" style="padding: 8px;"><strong>Status:</strong> <?= getStatusDisplay($app_row['status']);?></li>
+		          	<li class="list-group-item" style="padding: 8px;"><strong>Status:</strong> <?= getStatusDisplay($app_row['status'],$app_row['user_id']);?></li>
 		        </ul>
 	      	</div>
 		</div>
@@ -55,31 +55,28 @@
                                   <th>Supply</th>
                                   <th>Category</th>
                                   <th>Quantity</th>
-                                  <th>Price</th>
-                                  <th>Subtotal</th>
+                                  <!-- <th>Price</th>
+                                  <th>Subtotal</th> -->
                               </tr>
                           </thead>
                           <tbody>
                           </tbody>
                           	<?php 
-                          		$total = 0;
+                          		$subtotal = 0;
                           		$fetch_cus = $mysqli->query("SELECT * FROM check_up_supplies WHERE cu_id='$cu_id' ORDER BY cus_id DESC") or die(mysqli_error());
 								while ($cus_row = $fetch_cus->fetch_array()) {
-								$subtotal = $cus_row['quantity']*$cus_row['price'];
-								$total +=$subtotal;
+								$subtotal += $cus_row['quantity'];
                           	?>
                           	<tr>
                           		<td><?= supply_info("name",$cus_row['supply_id']);?></td>
                           		<td><?= supplyCategory(supply_info("supply_category",$cus_row['supply_id']));?></td>
                           		<td><?= number_format($cus_row['quantity']*1,2); ?></td>
-                          		<td><?= number_format($cus_row['price']*1,2); ?></td>
-                          		<td><?= number_format($subtotal*1,2) ?></td>
                           	</tr>
                           	<?php } ?>
                           <tfoot>
                               <tr>
-                                  <th colspan="4" style="text-align:right">Total:</th>
-                                  <th><?= number_format($total*1,2) ?></th>
+                                  <th colspan="2" style="text-align:right">Total:</th>
+                                  <th><?= number_format($subtotal*1,2) ?></th>
                               </tr>
                           </tfoot>
                       </table>

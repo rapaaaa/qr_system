@@ -31,7 +31,7 @@ $fetch_count_checkups = $mysqli->query("SELECT * FROM check_ups") or die(mysqli_
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Number of Patients:</div>
+                            Number of Residents:</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=patients" style="color: #222222;"><?= mysqli_num_rows($fetch_count_patients)?></a></div>
                     </div>
                     <div class="col-auto">

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-3">
-        <h1 class="h3 mb-0 text-gray-800">Patients</h1>
+        <h1 class="h3 mb-0 text-gray-800">Residents</h1>
     </div>
     <!-- Content Row -->
     <div class="row">
@@ -12,14 +12,14 @@
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
-                        <span class="text">Add patient</span>
+                        <span class="text">Add resident</span>
                     </a>
 
                      <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>
-                        <span class="text">Delete selected patient</span>
+                        <span class="text">Delete selected resident</span>
                     </a>
                 </div>
                 <div class="card-body">
@@ -35,7 +35,7 @@
                                     <th>Birthday</th>
                                     <th>Address</th>
                                     <th>Username</th>
-                                    <th>Encoded By</th>
+                                    <!-- <th>Encoded By</th> -->
                                     <th>Date Added</th>
                                 </tr>
                             </thead>
@@ -211,9 +211,9 @@
             {
                 "data":"username"
             },
-            {
-                "data":"encoded_by"
-            },
+            // {
+            //     "data":"encoded_by"
+            // },
             {
                 "data":"date_added"
             },

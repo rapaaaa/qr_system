@@ -30,7 +30,7 @@
                                 <tr>
                                     <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_checkup')"></th>
                                     <th style="width: 5px;"></th>
-                                    <th>Patient</th>
+                                    <th>Resident</th>
                                     <th>Service</th>
                                     <th>Remarks</th>
                                     <th>Prescription</th>

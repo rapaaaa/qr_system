@@ -25,19 +25,19 @@
                                   <th>#</th>
                                   <th>Patient</th>
                                   <th>Service</th>
-                                  <th>Service Fee</th>
+                                  <!-- <th>Service Fee</th> -->
                                   <th>Date Added</th>
                               </tr>
                           </thead>
                           <tbody>
                           </tbody>
-                          <tfoot>
+                          <!-- <tfoot>
                             <tr>
                               <th colspan="3" style="text-align:right">Total:</th>
                               <th></th>
                               <th></th>
                             </tr>
-                          </tfoot>
+                          </tfoot> -->
                       </table>
                     </div>
                 </div>
@@ -88,9 +88,9 @@ function get_cps_report() {
       {
           "data":"service"
       },
-      {
-          "data":"service_fee"
-      },
+      // {
+      //     "data":"service_fee"
+      // },
       {
           "data":"date_added"
       }
