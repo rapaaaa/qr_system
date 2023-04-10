@@ -45,7 +45,7 @@
 
 					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Birthday:</strong></span></div>
-					  	<input type="date" class="form-control" name="update_birthday" id="update_birthday" autocomplete="off" required>
+					  	<input type="date" class="form-control" name="update_birthday" id="update_birthday" autocomplete="off">
 					</div>
 
 					<div class="input-group" style="margin-bottom: 5px;">

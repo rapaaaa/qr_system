@@ -34,6 +34,7 @@
                                     <th>Category</th>
                                     <!-- <th>Price</th> -->
                                     <th>Description</th>
+                                    <th>Quantity</th>
                                     <th>Remarks</th>
                                     <th>Date Added</th>
                                 </tr>
@@ -109,6 +110,7 @@
                 $("#update_name").val(get_data[0].name);
                 $("#update_price").val(get_data[0].price);
                 $("#update_description").val(get_data[0].description);
+                $("#update_quantity").val(get_data[0].quantity);
                 $("#update_remarks").val(get_data[0].remarks);
                 $(".update_supply_category").val(get_data[0].supply_category);
         });
@@ -172,6 +174,9 @@
             // },
             {
                 "data":"description"
+            },
+            {
+                "data":"quantity"
             },
             {
                 "data":"remarks"

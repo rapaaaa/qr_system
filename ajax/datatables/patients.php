@@ -13,7 +13,7 @@
 		$list['name'] 				= patientFullName($row['patient_id']);
 		$list['gender'] 			= patientGender($row['gender']);
 		$list['contact_number'] 	= $row['contact_number'];
-		$list['birthday'] 			= date("F j, Y",strtotime($row['birthday']));
+		$list['birthday'] 			= $row['birthday']=="0000-00-00"?"":date("F j, Y",strtotime($row['birthday']));
 		$list['address'] 			= $row['address'];
 		$list['username'] 			= $row['username'];
 		$list['encoded_by'] 		= userFullName($row['encoded_by']);

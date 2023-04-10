@@ -14,6 +14,7 @@
 		$list['category'] 		= supplyCategory($row['supply_category']);
 		$list['price'] 			= number_format($row['price'],2);
 		$list['description'] 	= $row['description'];
+		$list['quantity'] 		= number_format($row['quantity'],2);
 		$list['remarks'] 		= $row['remarks'];
 		$list['date_added'] 	= date("F j, Y h:i A",strtotime($row['date_added']));
 

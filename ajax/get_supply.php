@@ -11,6 +11,7 @@
 		$list['name'] = $row['name'];
 		$list['price'] = $row['price'];
 		$list['description'] = $row['description'];
+		$list['quantity'] = $row['quantity'];
 		$list['remarks'] = $row['remarks'];
 		$list['supply_category'] = $row['supply_category'];
 
