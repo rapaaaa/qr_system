@@ -2,7 +2,7 @@
 /** Core Path **/
 define("host","localhost");
 define("username","u981310152_qrsystem_root");
-define("password","0wt@8>L=i^T");
+define("password","yH6FI8o*?");
 define("database","u981310152_qrsystem_db");
 
 /*define("host","localhost");
