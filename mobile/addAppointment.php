@@ -17,7 +17,7 @@ $patient_id = $mysqli_connect->real_escape_string($data->user_id);
 
 $date = getCurrentDate();
 
-$sql= $mysqli_connect->query("INSERT INTO `appointments`(`service_id`, `app_time`, `description`,`patient_id`) VALUES ('$service_id', '$app_time', '$description','$patient_id')");
+$sql= $mysqli_connect->query("INSERT INTO `appointments`(`service_id`, `app_time`, `description`,`patient_id`, date_added) VALUES ('$service_id', '$app_time', '$description','$patient_id', '$app_time')");
 			
 if($sql){
     echo 1;
