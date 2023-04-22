@@ -72,7 +72,7 @@ function usernameChecker($username,$update_user_id){
 function getStatusDisplay($status,$user_id){
 
 
-	$result = $status==0 && $user_id!=0?"<span style='color:orange'>Saved</span>":(($status==1 && $user_id!=0)?"<span style='color:green'>Finished</span>":(($status==2)?"<span style='color:red'>Canceled</span>":(($user_id==0)?"<span style='color:#4e73df;'>Pending</span>":"")));
+	$result = $status==0 && $user_id!=0?"<span style='color:orange'>Saved</span>":(($status==1 && $user_id!=0)?"<span style='color:green'>Finished</span>":(($status==2)?"<span style='color:red'>Denied</span>":(($user_id==0)?"<span style='color:#4e73df;'>Pending</span>":"")));
 
 	return $result;
 }
