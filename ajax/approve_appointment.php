@@ -11,7 +11,7 @@
 		$app_row = $fetch_appointments->fetch_array();
 		$queue_number = $app_row[0]+1;
 
-		$update_data 	= "user_id = '$user_id',queue_number='$queue_number'";
+		$update_data 	= "user_id = '$user_id',queue_number='$queue_number', status=1";
 
 		$mysqli->query("UPDATE appointments SET $update_data WHERE app_id = '$app_id' ") or die(mysql_error());
 		echo 1;
