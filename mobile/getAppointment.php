@@ -21,6 +21,7 @@ while ($row = $fetch->fetch_array()) {
     $list['patient'] = getPatient($row['patient_id']);
     $list['service'] = getService($row['service_id']);
     $list['description'] = $row['description'];
+    $list['queue_number'] = $row['queue_number'];
     $list['status'] = $row['status'];
     $list['app_time'] = date('M d, Y h:i A', strtotime($row['app_time']));
     $list['date_added'] = date('M d, Y h:i A', strtotime($row['date_added']));
