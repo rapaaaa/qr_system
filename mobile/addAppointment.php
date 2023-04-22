@@ -10,7 +10,7 @@ require_once 'core/config.php';
 $data = json_decode(file_get_contents("php://input"));
 
 $service_id = $mysqli_connect->real_escape_string($data->service_id);
-$app_time = $mysqli_connect->real_escape_string($data->app_time);
+$app_time = getCurrentDate(); //$mysqli_connect->real_escape_string($data->app_time);
 $description = $mysqli_connect->real_escape_string($data->description);
 $patient_id = $mysqli_connect->real_escape_string($data->user_id);
 
