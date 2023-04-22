@@ -9,19 +9,21 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once 'core/config.php';
 $data = json_decode(file_get_contents("php://input"));
 
-$service_id = $mysqli_connect->real_escape_string($data->service_id);
-$app_time = getCurrentDate(); //$mysqli_connect->real_escape_string($data->app_time);
-$description = $mysqli_connect->real_escape_string($data->description);
-$patient_id = $mysqli_connect->real_escape_string($data->user_id);
+if(isset($data->user_id) && $data->user_id > 0){
+
+    $service_id = $mysqli_connect->real_escape_string($data->service_id);
+    $app_time = getCurrentDate(); //$mysqli_connect->real_escape_string($data->app_time);
+    $description = $mysqli_connect->real_escape_string($data->description);
+    $patient_id = $mysqli_connect->real_escape_string($data->user_id);
 
 
-$date = getCurrentDate();
+    $date = getCurrentDate();
 
-$sql= $mysqli_connect->query("INSERT INTO `appointments`(`service_id`, `app_time`, `description`,`patient_id`, date_added) VALUES ('$service_id', '$app_time', '$description','$patient_id', '$app_time')");
-			
-if($sql){
-    echo 1;
-}else{
-    echo 0;
+    $sql= $mysqli_connect->query("INSERT INTO `appointments`(`service_id`, `app_time`, `description`,`patient_id`, date_added) VALUES ('$service_id', '$app_time', '$description','$patient_id', '$app_time')");
+                
+    if($sql){
+        echo 1;
+    }else{
+        echo 0;
+    }
 }
-
