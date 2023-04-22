@@ -20,7 +20,7 @@
 	    	<span class="font-weight-bold" style="<?=$notif_header_color?>"><?= $notif_note?></span><br>
 	        <span class="font-weight-bold"><?= patientFullName($row['patient_id'])?></span><br>
 	        <span class="font-weight-bold"><?= service_info("service",$row['service_id'])?></span><br>
-	        <span class="font-weight-bold"><?= date("F j, Y h:i A",strtotime($row['app_time']))?></span>
+	        <span class="font-weight-bold"><?= date("F j, Y h:i A",strtotime($row['date_added']))?></span>
 	    </div>
 	</span>
 <?php } ?>
