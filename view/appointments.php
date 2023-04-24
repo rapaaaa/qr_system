@@ -180,6 +180,15 @@
         });
     }
 
+    function getQueueNumberUpdate(){
+         var appointment_time = $("#update_app_time").val();
+        $.post("ajax/appointment_queue_number.php",{
+            appointment_time:appointment_time
+        },function(data){
+            $("#update_queue_number").val(data);
+        });
+    }
+
     function approveAppointment(app_id){
         $.post("ajax/approve_appointment.php",{
             app_id:app_id

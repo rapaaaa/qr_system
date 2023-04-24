@@ -17,7 +17,7 @@
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Date:</strong></span></div>
-					  	<input type="date" class="form-control" name="update_app_time" id="update_app_time" required>
+					  	<input type="date" class="form-control" name="update_app_time" id="update_app_time" onchange="getQueueNumberUpdate()" required>
 					</div>
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
