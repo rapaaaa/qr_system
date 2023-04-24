@@ -16,7 +16,7 @@ if(isset($data->user_id) && $data->user_id > 0){
     $description = $mysqli_connect->real_escape_string($data->description);
     $patient_id = $mysqli_connect->real_escape_string($data->user_id);
 
-    $fetch = $mysqli->query("SELECT * FROM doctor_schedule WHERE date='$app_time'") or die(mysqli_error());
+    $fetch = $mysqli_connect->query("SELECT * FROM doctor_schedule WHERE date='$app_time'") or die(mysqli_error());
     $row = $fetch->fetch_array();
     $max_residents = $row['max_residents'];
     
