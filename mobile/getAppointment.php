@@ -9,7 +9,7 @@ require_once 'core/config.php';
 
 $data = json_decode(file_get_contents("php://input"));
 $user_id = $mysqli_connect->real_escape_string($data->user_id);
-$fetch = $mysqli_connect->query("SELECT * FROM appointments WHERE patient_id='$user_id'");
+$fetch = $mysqli_connect->query("SELECT * FROM appointments WHERE patient_id='$user_id' ORDER BY app_time DESC");
 
 $response = array();
 while ($row = $fetch->fetch_array()) {
@@ -23,7 +23,7 @@ while ($row = $fetch->fetch_array()) {
     $list['description'] = $row['description'];
     $list['queue_number'] = $row['queue_number'];
     $list['status'] = $row['status'];
-    $list['app_time'] = date('M d, Y h:i A', strtotime($row['app_time']));
+    $list['app_time'] = date('M d, Y', strtotime($row['app_time']));
     $list['date_added'] = date('M d, Y h:i A', strtotime($row['date_added']));
     array_push($response, $list);
 }

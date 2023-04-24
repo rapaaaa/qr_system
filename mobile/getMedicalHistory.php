@@ -10,7 +10,7 @@ require_once 'core/config.php';
 
 $data = json_decode(file_get_contents("php://input"));
 $user_id = $mysqli_connect->real_escape_string($data->user_id);
-$fetch = $mysqli_connect->query("SELECT * FROM appointments WHERE patient_id='$user_id' AND status='1'");
+$fetch = $mysqli_connect->query("SELECT * FROM appointments WHERE patient_id='$user_id' AND status='1' ORDER BY app_time DESC");
 
 $response = array();
 while ($row = $fetch->fetch_array()) {
