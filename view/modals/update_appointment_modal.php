@@ -16,7 +16,7 @@
 	            	<input type="hidden" name="update_app_id" id="update_app_id">
 
 	            	<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Date:</strong></span></div>
 					  	<input type="date" class="form-control" name="update_app_time" id="update_app_time" required>
 					</div>
 

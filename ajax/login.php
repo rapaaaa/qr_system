@@ -11,7 +11,7 @@
 		$_SESSION['user_id'] = $row['user_id'];
 		$_SESSION['category_id'] = $row['category_id'];
 		
-		echo (count($row)>0)?1:0;
+		echo ($fetch->num_rows > 0)?1:0;
 
 	}
 ?>

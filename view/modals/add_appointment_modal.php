@@ -13,7 +13,7 @@
 	            </div>
 	            <div class="modal-body">
 					<div class="input-group" style="margin-bottom: 5px;">
-					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Time:</strong></span></div>
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Date:</strong></span></div>
 					  	<input type="date" class="form-control" id="time" name="time" onchange='getQueueNumber()' required>
 					</div>
 

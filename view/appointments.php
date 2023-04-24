@@ -106,10 +106,10 @@
                     get_AppData();
                 }else if(data == 2){
                     modified_alert("Warning!","The doctor is unavailable.","warning");
-                    $("#addAppModal").modal('hide');
+                    $("#UpdateAppointmentModal").modal('hide');
                 }else if(data == 3){
                     modified_alert("Warning!","The doctor's schedule is already fully occupied.","warning");
-                    $("#addAppModal").modal('hide');
+                    $("#UpdateAppointmentModal").modal('hide');
                 }else{
                     warning_info();
                     $("#UpdateAppointmentModal").modal('hide');
@@ -187,6 +187,10 @@
             if(data == 1){
                 modified_alert("Great!","Data is successfully Approved.","success");
                 get_AppData();
+            }else if(data == 2){
+                modified_alert("Warning!","The doctor is unavailable.","warning");
+            }else if(data == 3){
+                modified_alert("Warning!","The doctor's schedule is already fully occupied.","warning");
             }else{
                 warning_info();
             }

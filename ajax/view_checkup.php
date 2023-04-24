@@ -32,7 +32,7 @@
 	      	<div class="card" style="width: 100%;">
 		        <ul class="list-group list-group-flush" style="font-size: 13px;">
 		        	<li class="list-group-item" style="padding: 8px;"><strong>Date:</strong> <?= date('F j,Y h:i A',strtotime($app_row['date_added']));?></li>
-		          	<li class="list-group-item" style="padding: 8px;"><strong>Time:</strong> <?= date('h:i A',strtotime($app_row['app_time']));?></li>
+		          	<!-- <li class="list-group-item" style="padding: 8px;"><strong>Time:</strong> <?= date('h:i A',strtotime($app_row['app_time']));?></li> -->
 		          	<li class="list-group-item" style="padding: 8px;"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
 		          	<li class="list-group-item" style="padding: 8px;"><strong>Description:</strong> <?= $app_row['description'];?></li>
 		          	<li class="list-group-item" style="padding: 8px;"><strong>Status:</strong> <?= getStatusDisplay($app_row['status'],$app_row['user_id']);?></li>

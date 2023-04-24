@@ -9,13 +9,11 @@
 		$description	= $_POST['update_description'];	
 		$app_time		= date("Y-m-d",strtotime($_POST['update_app_time']));
 
-
-
 		$fetch = $mysqli->query("SELECT * FROM doctor_schedule WHERE date='$app_time'") or die(mysqli_error());
 		$row = $fetch->fetch_array();
 		$max_residents = $row['max_residents'];
 
-		$fetch_count_appointments = $mysqli->query("SELECT * FROM appointments WHERE  date_format(`app_time`,'%Y-%m-%d')='$app_time'") or die(mysqli_error());
+		$fetch_count_appointments = $mysqli->query("SELECT * FROM appointments WHERE  date_format(`app_time`,'%Y-%m-%d')='$app_time' AND user_id!='0'") or die(mysqli_error());
 		$count_appointment = mysqli_num_rows($fetch_count_appointments);
 
 

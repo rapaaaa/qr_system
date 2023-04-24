@@ -40,7 +40,7 @@
           <div class="card" style="width: 100%">
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>Name:</strong> <?= $app_id==""?"":patientFullName($patient_row['patient_id'])?></li>
-              <li class="list-group-item"><strong>Time:</strong> <?= $app_id==""?"":date('h:i A',strtotime($app_row['app_time']));?></li>
+              <!-- <li class="list-group-item"><strong>Time:</strong> <?= $app_id==""?"":date('h:i A',strtotime($app_row['app_time']));?></li> -->
               <li class="list-group-item"><strong>Service:</strong> <?= service_info("service",$app_row['service_id']);?></li>
               <li class="list-group-item"><strong>Description:</strong> <?= $app_row['description'];?></li>
               <!-- <li class="list-group-item"><strong>Encoded by:</strong> <?= $app_id==""?"":userFullName($app_row['user_id']);?></li> -->
