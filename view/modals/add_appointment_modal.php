@@ -50,7 +50,7 @@
 
 					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Description:</strong></span></div>
-					  	<textarea class="form-control" name='description' required></textarea>
+					  	<textarea class="form-control" name='description'></textarea>
 					</div>
 	            </div>
 	            <div class="modal-footer">
