@@ -30,13 +30,13 @@
 
 					<!-- <div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Price:</strong></span></div> -->
-					  	<input type="hidden" class="form-control" name="update_price" id="update_price" step=".01" autocomplete="off">
+					  	<!-- <input type="hidden" class="form-control" name="update_price" id="update_price" step=".01" autocomplete="off"> -->
 					<!-- </div> -->
 
-					<div class="input-group" style="margin-bottom: 5px;">
+					<!-- <div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Quantity:</strong></span></div>
 					  	<input type="number" class="form-control" name="update_quantity" id="update_quantity" step=".01" autocomplete="off">
-					</div>
+					</div> -->
 
 					<div class="input-group" style="margin-bottom: 5px;">
 					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Description:</strong></span></div>

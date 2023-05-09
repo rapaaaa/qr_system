@@ -71,7 +71,7 @@
                     <select class="form-control" id='cu_service_id' required>
                           <option value=''>Please choose service:</option>
                           <?php
-                            $fetch_service = $mysqli->query("SELECT * FROM services ORDER BY service ASC") or die(mysqli_error());
+                            $fetch_service = $mysqli->query("SELECT * FROM services WHERE (status='E' OR status='') ORDER BY service ASC") or die(mysqli_error());
                       while ($service_row = $fetch_service->fetch_array()) {
                         $selected_service = ($checkup_row['service_id']==$service_row['service_id'])?"selected":"";
                         echo "<option value='$service_row[service_id]' $selected_service>".$service_row['service']."</option>";

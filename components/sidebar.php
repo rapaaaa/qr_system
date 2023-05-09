@@ -26,10 +26,15 @@
 
     <li class="nav-item">
         <a class="nav-link" href="index.php?page=doctor_schedule">
-            <i class="fas fa-fw fa-clipboard-list"></i>
+            <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Doctor Schedule</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="index.php?page=feedback">
+            <i class="fas fa-fw fa-comment-dots"></i>
+            <span>Feedback</span></a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link" href="index.php?page=supplies">
@@ -51,7 +56,7 @@
 
      <li class="nav-item" <?= $admin_privilege ?>>
         <a class="nav-link" href="index.php?page=services">
-            <i class="fas fa-fw fa-list"></i>
+            <i class="fas fa-fw fa-hand-holding"></i>
             <span>Services</span></a>
     </li>
 
@@ -85,6 +90,12 @@
         <a class="nav-link" href="index.php?page=checkup_per_service_report">
             <i class="fas fa-fw fa-list"></i>
             <span>Checkup per service</span></a>
+    </li>
+
+    <li class="nav-item" <?= $admin_privilege ?>>
+        <a class="nav-link" href="index.php?page=inventory_report">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Inventory Report <?= inventoryLowChecker()>0?"<span class='badge badge-danger badge-counter'>Low</span>":""?></span></a>
     </li>
 
     <!-- Divider -->

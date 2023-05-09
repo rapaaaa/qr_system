@@ -16,6 +16,13 @@
                         <span class="text">Add medicine/vaccine</span>
                     </a>
 
+                    <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle='modal' data-target='#addSupplyQuantityModal'>
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus-circle"></i>
+                        </span>
+                        <span class="text">Add quantity</span>
+                    </a>
+
                      <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
@@ -34,7 +41,7 @@
                                     <th>Category</th>
                                     <!-- <th>Price</th> -->
                                     <th>Description</th>
-                                    <th>Quantity</th>
+                                    <!-- <th>Quantity</th> -->
                                     <th>Remarks</th>
                                     <th>Date Added</th>
                                 </tr>
@@ -51,6 +58,7 @@
     <?php 
         include 'modals/add_supply_modal.php';
         include 'modals/update_supply_modal.php';
+        include 'modals/add_supply_quantity_modal.php';
     ?>
 
 <script type="text/javascript">
@@ -89,6 +97,8 @@
                     $("#UpdateSupplyModal").modal('hide');
                     success_update();
                     get_SupplyData();
+                }else if(data == 2){
+                    alert("Unable to update! This product is already available.");
                 }else{
                     warning_info();
                     $("#UpdateSupplyModal").modal('hide');
@@ -108,13 +118,36 @@
                var get_data = JSON.parse(data);
                 $("#update_supply_id").val(get_data[0].supply_id);
                 $("#update_name").val(get_data[0].name);
-                $("#update_price").val(get_data[0].price);
                 $("#update_description").val(get_data[0].description);
-                $("#update_quantity").val(get_data[0].quantity);
                 $("#update_remarks").val(get_data[0].remarks);
                 $(".update_supply_category").val(get_data[0].supply_category);
         });
     }
+
+    $("#form_add_supply_quantity").submit(function(e){
+        e.preventDefault();
+        $("#btn_add_quantity").prop('disabled', true);
+        $.ajax({
+            type:"POST",
+            url:"ajax/add_supply_quality.php",
+            data:$("#form_add_supply_quantity").serialize(),
+            success:function(data){
+                if(data == 1){
+                    $("#addSupplyQuantityModal").modal('hide');
+                    success_add();
+
+                    $("#form_add_supply_quantity").each(function(){
+                       this.reset();
+                    });
+                }else{
+                    warning_info();
+                    $("#addSupplyQuantityModal").modal('hide');
+                }
+
+            }
+        });
+        $("#btn_add_quantity").prop('disabled', false);
+    });
 
     $("#form_add_supply").submit(function(e){
         e.preventDefault();
@@ -132,6 +165,8 @@
                     $("#form_add_supply").each(function(){
                        this.reset();
                     });
+                }else if(data == 2){
+                    alert("Unable to add! This product is already available.");
                 }else{
                     warning_info();
                     $("#addSupplyModal").modal('hide');
@@ -175,9 +210,9 @@
             {
                 "data":"description"
             },
-            {
-                "data":"quantity"
-            },
+            // {
+            //     "data":"quantity"
+            // },
             {
                 "data":"remarks"
             },
@@ -189,6 +224,7 @@
     }
 
 $(document).ready(function() {
+    $(".select2").select2();
     get_SupplyData();
 });
 </script>

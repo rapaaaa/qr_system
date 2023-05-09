@@ -91,8 +91,12 @@
             supply_id:supply_id,
             supply_quantity:supply_quantity
         },function(data){
-            get_CUSData();
-            success_add();
+            if(data==1){
+                get_CUSData();
+                success_add();
+            }else{
+                alert("Unable to add! Insufficient inventory quantity.");
+            }
         });
     }
 

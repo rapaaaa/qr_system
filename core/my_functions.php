@@ -88,4 +88,42 @@ function getStatusDisplayNone($status){
 
 	return $result;
 }
+
+function getInventoryQuantity($supply_id){
+	global $mysqli;
+
+	$fetch_supply_quantity = $mysqli->query("SELECT SUM(quantity) FROM supply_quantity WHERE supply_id='$supply_id'") or die(mysqli_error());
+	$supply_quantity_row 	= $fetch_supply_quantity->fetch_array();
+
+	$fetch_check_up_supplies = $mysqli->query("SELECT SUM(quantity) FROM check_up_supplies WHERE supply_id='$supply_id'") or die(mysqli_error());
+	$check_up_supplies_row 	= $fetch_check_up_supplies->fetch_array();
+	$result = $supply_quantity_row[0] - $check_up_supplies_row[0];
+
+	return $result;
+}
+
+function inventoryLowChecker(){
+	global $mysqli;
+
+	$fetch = $mysqli->query("SELECT * FROM supplies ORDER BY name ASC") or die(mysqli_error());
+	$response['data'] = array();
+	$result = 0;
+	while ($row = $fetch->fetch_array()) {
+		$fetch_supply_quantity = $mysqli->query("SELECT SUM(quantity) FROM supply_quantity WHERE supply_id='$row[supply_id]'") or die(mysqli_error());
+		$supply_quantity_row 	= $fetch_supply_quantity->fetch_array();
+
+		$fetch_check_up_supplies = $mysqli->query("SELECT SUM(quantity) FROM check_up_supplies WHERE supply_id='$row[supply_id]'") or die(mysqli_error());
+		$check_up_supplies_row 	= $fetch_check_up_supplies->fetch_array();
+		$remaining_quantity = $supply_quantity_row[0] - $check_up_supplies_row[0];
+
+
+		if($remaining_quantity<5){
+			$result +=1;
+		}else{
+			$result +=0;
+		}
+	}
+
+	return $result;
+}
 ?>

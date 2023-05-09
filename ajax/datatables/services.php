@@ -10,7 +10,7 @@
  		$list['count'] 			= $count++;
 		$list['service_id'] 	= $row['service_id'];
 		$list['service'] 		= $row['service'];
-		$list['service_fee'] 	= number_format($row['service_fee'],2);
+		$list['status'] 		= $row['status']==""|| $row['status']=='E'?"<button class='btn btn-success btn-sm btn-fill' data-toggle='tooltip' title='Click to disable' onclick='enableDisableServices($row[service_id])'><span class='fas fa-fw fa-check-circle'></span> Enabled</button>":"<button class='btn btn-danger btn-sm btn-fill' data-toggle='tooltip' title='Click to enable' onclick='enableDisableServices($row[service_id])'><span class='fas fa-fw fa-ban'></span> Disabled</button>";
 		$list['date_added'] 	= date("F j, Y h:i A",strtotime($row['date_added']));
 
 		array_push($response['data'], $list);

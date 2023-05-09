@@ -8,7 +8,15 @@
 
 	$price = supply_info("price",$supply_id);
 
-	$mysqli->query("INSERT INTO check_up_supplies SET cu_id = '$cu_id', supply_id = '$supply_id', quantity = '$quantity', price = '$price', date_added = '$date_added'") OR die(mysql_error());
+	$remaining_quantity = getInventoryQuantity($supply_id);
 
-	echo 1;
+	if($remaining_quantity < $quantity){
+		echo 2;
+	}else{
+		$mysqli->query("INSERT INTO check_up_supplies SET cu_id = '$cu_id', supply_id = '$supply_id', quantity = '$quantity', price = '$price', date_added = '$date_added'") OR die(mysql_error());
+
+		echo 1;
+	}
+
+	
 ?>

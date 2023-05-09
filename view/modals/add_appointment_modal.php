@@ -40,7 +40,7 @@
 					  	<select class="form-control" name='service_id' required>
 	            			<option value=''>Please choose service:</option>
 	            			<?php
-	            				$fetch_service = $mysqli->query("SELECT * FROM services ORDER BY service ASC") or die(mysqli_error());
+	            				$fetch_service = $mysqli->query("SELECT * FROM services WHERE (status='E' OR status='') ORDER BY service ASC") or die(mysqli_error());
 								while ($service_row = $fetch_service->fetch_array()) {
 									echo "<option value='$service_row[service_id]'>".$service_row['service']."</option>";
 								}

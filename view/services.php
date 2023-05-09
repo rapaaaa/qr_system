@@ -31,7 +31,7 @@
                                     <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_service')"></th>
                                     <th style="width: 5px;"></th>
                                     <th>Service</th>
-                                   <!--  <th>Service Fee</th> -->
+                                    <th>Status</th>
                                     <th>Date Added</th>
                                 </tr>
                             </thead>
@@ -50,6 +50,22 @@
     ?>
 
 <script type="text/javascript">
+    function enableDisableServices(service_id){
+        var confirmthis = confirm("Are you sure you want to update status?");
+        if(confirmthis==true){
+            $.post("ajax/update_service_status.php",{
+                service_id:service_id
+            },function(data){
+               if(data == 1){
+                    success_update();
+                    get_ServiceData();
+                }else{
+                    warning_info();
+                }  
+            });
+        }
+    }
+
     function deleteEntry(){
         var checkedValues = $('.delete_check_box:checkbox:checked').map(function() {
             return this.value;
@@ -157,9 +173,9 @@
             {
                 "data":"service"
             },
-            // {
-            //     "data":"service_fee"
-            // },
+            {
+                "data":"status"
+            },
             {
                 "data":"date_added"
             }
