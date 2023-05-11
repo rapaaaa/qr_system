@@ -7,7 +7,7 @@
 		$date_added 	= $system_date;
 
 
-		$sql = $mysqli->query("INSERT INTO services SET service = '$service', service_fee = '$service_fee', date_added = '$date_added'") OR die(mysql_error());
+		$sql = $mysqli->query("INSERT INTO services SET service = '$service', service_fee = '$service_fee', date_added = '$date_added', status='E'") OR die(mysql_error());
 		
 		echo 1;
 	}
