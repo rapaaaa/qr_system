@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once 'core/config.php';
 
 $data = json_decode(file_get_contents("php://input"));
-$fetch = $mysqli_connect->query("SELECT * FROM services ORDER BY service ASC");
+$fetch = $mysqli_connect->query("SELECT * FROM services WHERE status='E' ORDER BY service ASC");
 $response = array();
 while ($row = $fetch->fetch_array()) {
     $list = array();
