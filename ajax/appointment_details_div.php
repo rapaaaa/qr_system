@@ -90,7 +90,7 @@
 
               <div class="col-sm-12" style="margin-bottom: 5px;">
                 <div class="input-group">
-                  <div class="input-group-prepend"><span class="input-group-text"><strong>Remarks:</strong></span></div>
+                  <div class="input-group-prepend"><span class="input-group-text"><strong>Diagnosis:</strong></span></div>
                   <textarea class="form-control" id="cu_remarks" autocomplete="off" rows="4"><?=$checkup_row['remarks']?></textarea>
                 </div>
               </div>
@@ -111,9 +111,9 @@
             <?php }else{?>
               <div class="row" style="margin-bottom: 5px;">
                 <div class="col-sm-12">
-                  <div class="input-group">
+                  <div class="input-group" style="margin-bottom: 5px;">
                       <div class="input-group-prepend"><span class="input-group-text"><strong>Supply:</strong></span></div>
-                      <select class="form-control" id='supply_id' required>
+                      <select class="form-control" id='supply_id' onchange="get_batch_numbers_dd()" required>
                             <option value=''>Please choose supply:</option>
                             <?php 
                               while ($supply_row = $fetch_supplies->fetch_array()) {
@@ -121,10 +121,19 @@
                               }
                             ?>
                       </select>
+                      <div class="input-group-prepend"><span class="input-group-text"><strong>Batch Number:</strong></span></div>
+                      <select class="form-control" id='batch_id' required>
+                      </select>
+                  </div>
+
+                  <div class="input-group">
                        <div class="input-group-prepend"><span class="input-group-text"><strong>Quantity:</strong></span></div>
                       <input type="number" class="form-control" id="supply_quantity" autocomplete="off" required>
+                  
+
                       <span type="button" class="btn btn-primary" onclick='save_used_supply()'><i class="fas fa-check-circle"></i> Save Data</span>
                   </div>
+                  
                 </div>
               </div>
 
@@ -144,6 +153,7 @@
                               <tr>
                                   <th style="width: 5px;"><input type="checkbox" onchange="checkAll(this, 'check_cus')"></th>
                                   <th>Supply</th>
+                                  <th>Batch Number</th>
                                   <th>Quantity</th>
                                   <!-- <th>Price</th>
                                   <th>Subtotal</th> -->
@@ -153,7 +163,7 @@
                           </tbody>
                           <tfoot>
                               <tr>
-                                  <th colspan="2" style="text-align:right">Total:</th>
+                                  <th colspan="3" style="text-align:right">Total:</th>
                                   <th></th>
                               </tr>
                           </tfoot>

@@ -102,6 +102,19 @@ function getInventoryQuantity($supply_id){
 	return $result;
 }
 
+function getInventoryQuantitySub($supply_id,$id){
+	global $mysqli;
+
+	$fetch_supply_quantity = $mysqli->query("SELECT SUM(quantity) FROM supply_quantity WHERE supply_id='$supply_id' AND id='$id'") or die(mysqli_error());
+	$supply_quantity_row 	= $fetch_supply_quantity->fetch_array();
+
+	$fetch_check_up_supplies = $mysqli->query("SELECT SUM(quantity) FROM check_up_supplies WHERE supply_id='$supply_id'  AND batch_id='$id'") or die(mysqli_error());
+	$check_up_supplies_row 	= $fetch_check_up_supplies->fetch_array();
+	$result = $supply_quantity_row[0] - $check_up_supplies_row[0];
+
+	return $result;
+}
+
 function inventoryLowChecker(){
 	global $mysqli;
 

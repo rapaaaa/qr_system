@@ -38,6 +38,7 @@
                                     <th>Status</th>
                                     <th>Approved By</th>
                                     <th>Date Added</th>
+                                    <th style="color: transparent;">ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -225,9 +226,9 @@
             {
                 "mRender":function(data, type, row){
                     if(row.user_id==0){
-                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button> <button class='btn btn-warning btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Cancel Appointment' onclick='cancelAppointment("+row.app_id+")'><span class='fa fa-times-circle'></span></button>";
+                        return "";
                     }else{
-                        return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button> <button class='btn btn-warning btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Cancel Appointment' onclick='cancelAppointment("+row.app_id+")'><span class='fa fa-times-circle'></span></button>";
+                        return "<button class='btn btn-info btn-sm btn-fill' style='padding: 5px 5px 5px 8px;' data-toggle='tooltip' title='Update Record' onclick='showUpdateModal("+row.app_id+")'><span class='fa fa-edit'></span></button>";
 
                     }
                 }
@@ -255,7 +256,17 @@
             },
             {
                 "data":"date_added"
-            }
+            },
+            {
+                "mRender":function(data, type, row){
+                    if(row.user_id==0){
+                        return "<button class='btn btn-success btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Approve Appointment' onclick='approveAppointment("+row.app_id+")'><span class='fa fa-check-circle'></span></button> <button class='btn btn-warning btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Cancel Appointment' onclick='cancelAppointment("+row.app_id+")'><span class='fa fa-times-circle'></span></button>";
+                    }else{
+                        return "<button class='btn btn-warning btn-sm btn-fill' style='padding: 6px 7px 4px 6px; "+row.status_display_none+"' data-toggle='tooltip' title='Cancel Appointment' onclick='cancelAppointment("+row.app_id+")'><span class='fa fa-times-circle'></span></button>";
+
+                    }
+                }
+            },
             ]
         });
     }

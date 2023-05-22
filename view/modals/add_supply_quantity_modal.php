@@ -37,6 +37,16 @@
 					  	<input type="number" class="form-control" name="quantity" autocomplete="off" required>
 					</div>
 
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Batch Number:</strong></span></div>
+					  	<input type="number" class="form-control" name="batch_number" autocomplete="off" required>
+					</div>
+
+					<div class="input-group" style="margin-bottom: 5px;">
+					  	<div class="input-group-prepend"><span class="input-group-text"><strong>Expiration Date:</strong></span></div>
+					  	<input type="date" class="form-control" name="expiration_date" required>
+					</div>
+
 	            </div>
 	            <div class="modal-footer">
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_add_quantity"><i class="fas fa-check-circle"></i> Save</button>

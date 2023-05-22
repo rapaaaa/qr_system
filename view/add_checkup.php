@@ -47,6 +47,15 @@
     </div>
 
 <script type="text/javascript">
+    function get_batch_numbers_dd(){
+        var supply_id = $("#supply_id").val();
+        $.post("ajax/get_supply_batch.php",{
+            supply_id:supply_id
+        },function(data){
+            $("#batch_id").html(data);
+        });
+    }
+
     function clear_qr_input(){
         $("#qr_number").val("").focus();
     }
@@ -86,16 +95,18 @@
         var cu_id = $("#cu_id").val();
         var supply_id = $("#supply_id").val();
         var supply_quantity = $("#supply_quantity").val();
+        var batch_id = $("#batch_id").val();
           $.post("ajax/save_used_supply.php",{
             cu_id:cu_id,
             supply_id:supply_id,
-            supply_quantity:supply_quantity
+            supply_quantity:supply_quantity,
+            batch_id:batch_id
         },function(data){
             if(data==1){
                 get_CUSData();
                 success_add();
             }else{
-                alert("Unable to add! Insufficient inventory quantity.");
+                alert("Unable to add! Insufficient inventory batch quantity.");
             }
         });
     }
@@ -282,6 +293,9 @@
             },
             {
                 "data":"supply"
+            },
+            {
+                "data":"batch_number"
             },
             {
                 "data":"quantity"
