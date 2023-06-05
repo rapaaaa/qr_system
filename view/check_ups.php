@@ -9,14 +9,14 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="index.php?page=add_checkup" class="btn btn-primary btn-icon-split btn-sm" >
+                    <a href="index.php?page=add_checkup" class="btn btn-primary btn-icon-split btn-sm" <?=$admin_and_doctor_privilege?>>
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
                         <span class="text">Add checkup</span>
                     </a>
 
-                     <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">
+                     <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()" <?=$admin_and_doctor_privilege?>>
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>

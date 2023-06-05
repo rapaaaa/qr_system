@@ -56,7 +56,7 @@
 					  	<textarea class="form-control" name="update_description" id="update_description" autocomplete="off"></textarea>
 					</div>
 	            </div>
-	            <div class="modal-footer">
+	            <div class="modal-footer" <?=$admin_and_doctor_privilege?>>
 	                <button type="submit" class="btn btn-primary btn-sm" id="btn_update_save"><i class="fas fa-check-circle"></i> Save</button>
 	                <button class="btn btn-danger btn-sm" type="button" data-dismiss="modal"><i class="fas fa-times-circle"></i> Close</button>
 	            </div>

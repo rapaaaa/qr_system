@@ -8,14 +8,14 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm" data-toggle='modal' data-target='#addPatientModal'>
+                    <a href="#" class="btn btn-primary btn-icon-split btn-sm" data-toggle='modal' data-target='#addPatientModal' <?=$admin_and_doctor_privilege?>>
                         <span class="icon text-white-50">
                             <i class="fas fa-plus-circle"></i>
                         </span>
                         <span class="text">Add resident</span>
                     </a>
 
-                     <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()">
+                     <a href="#" class="btn btn-danger btn-icon-split btn-sm" onclick="deleteEntry()" <?=$admin_and_doctor_privilege?>>
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>

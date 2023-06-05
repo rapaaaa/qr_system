@@ -24,7 +24,7 @@
         Master Data
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item" <?= $admin_and_doctor_privilege ?>>
         <a class="nav-link" href="index.php?page=doctor_schedule">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Doctor Schedule</span></a>
@@ -48,7 +48,7 @@
             <span>Residents</span></a>
     </li>
 
-    <li class="nav-item" <?= $admin_privilege ?>>
+    <li class="nav-item" <?= $admin_and_bhw_privilege ?>>
         <a class="nav-link" href="index.php?page=posts">
             <i class="fas fa-fw fa-comment"></i>
             <span>Posts</span></a>
@@ -67,13 +67,13 @@
         Transactions
     </div>
 
-     <li class="nav-item" <?= $admin_and_doctor_privilege ?>>
+     <li class="nav-item" <?= $admin_and_doctor_and_bhw_privilege ?>>
         <a class="nav-link" href="index.php?page=appointments">
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Appointments</span></a>
     </li>
 
-    <li class="nav-item" <?= $admin_and_doctor_privilege ?>>
+    <li class="nav-item" <?= $admin_and_doctor_and_bhw_privilege ?>>
         <a class="nav-link" href="index.php?page=check_ups">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Checkups</span></a>

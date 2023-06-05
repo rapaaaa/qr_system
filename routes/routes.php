@@ -16,7 +16,7 @@
 		require $view.'posts.php';
 	}else if($page == 'appointments'){
 		require $view.'appointments.php';
-	}else if($page == 'check_ups' && ($user_type==1 || $user_type==2)){ //admin and doctor
+	}else if($page == 'check_ups' && ($user_type==1 || $user_type==2 || $user_type==3)){ //admin and doctor
 		require $view.'check_ups.php';
 	}else if($page == 'add_checkup' && ($user_type==1 || $user_type==2)){ //admin and doctor
 		require $view.'add_checkup.php';

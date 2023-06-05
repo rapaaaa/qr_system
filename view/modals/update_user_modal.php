@@ -20,7 +20,7 @@
 					  		<option value=''>Please choose category:</option>
 	            			<option value='1'>Admin</option>
 	            			<option value='2'>Doctor</option>
-	            			<!-- <option value='3'>Health Worker</option> -->
+	            			<option value='3'>Health Worker</option>
 					  	</select>
 					</div>
 
